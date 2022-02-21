@@ -1,57 +1,76 @@
+import axios from "axios";
 import React, { useState } from "react";
 import logo from "./logo.svg";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const user = {
+    username: username,
+    password: password,
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    axios.post("", { user }).then((res) => {
+      console.log(res);
+      console.log(res.data);
+    });
+  };
+
   return (
-    <div class="auth--wrapper">
-      <div class="auth--logo">
-        <a href="{% url 'store:home' %}">
+    <div className="auth--wrapper">
+      <div className="auth--logo">
+        <a href="#/">
           <img src={logo} alt="Ecommerce logo" height="50" />
         </a>
       </div>
-      <div class="auth--head">
-        <h3 class="mb-1">Login</h3>
-        <div class="d-flex align-items-center justify-content-between font-14">
-          <span class="text-gray-500">Welcome Back!</span>
-          <a class="text-info text-underline-hover" href="#/">
+      <div className="auth--head">
+        <h3 className="mb-1">Login</h3>
+        <div className="d-flex align-items-center justify-content-between font-14">
+          <span className="text-gray-500">Welcome Back!</span>
+          <a className="text-info text-underline-hover" href="#/">
             Register
           </a>
         </div>
       </div>
-      <div class="auth--form">
-        <form method="post">
-          <div class="form-group">
+      <div className="auth--form">
+        <form method="post" onSubmit={onSubmit}>
+          <div className="form-group">
             <label for="username">Username</label>
             <input
               id="username"
               type="text"
-              class="form-control"
+              className="form-control"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="password">Password</label>
-            <div class="input-with-icon icon-right">
+            <div className="input-with-icon icon-right">
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button class="btn btn-icon-only" type="button" id="passToggle">
-                <i class="ic-view-off"></i>
+              <button
+                className="btn btn-icon-only"
+                type="button"
+                id="passToggle"
+              >
+                <i className="ic-view-off"></i>
               </button>
             </div>
-            <div class="text-right">
-              <a class="font-14 text-info text-underline-hover" href="#/">
+            <div className="text-right">
+              <a className="font-14 text-info text-underline-hover" href="#/">
                 Forgot Password?
               </a>
             </div>
           </div>
-          <button class="btn btn-block btn-primary" type="submit">
+          <button className="btn btn-block btn-primary" type="submit">
             Login
           </button>
         </form>
