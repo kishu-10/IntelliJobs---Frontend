@@ -52,7 +52,7 @@ const Register = () => {
             <input
               type="text"
               class="form-control"
-              value={[username]}
+              value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
