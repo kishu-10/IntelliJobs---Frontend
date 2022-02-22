@@ -9,6 +9,24 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
+
+  const user = {
+    firstname: firstname,
+    lastname: lastname,
+    username: username,
+    phonenumber: phonenumber,
+    email: email,
+    password: password,
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    axios.post("", { user }).then((res) => {
+      console.log(res);
+      console.log(res.data);
+    });
+  };
+
   return (
     <div class="auth--wrapper">
       <div class="auth--logo">
@@ -26,7 +44,7 @@ const Register = () => {
         </div>
       </div>
       <div class="auth--form">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" onSubmit={onSubmit}>
           <div class="form-group">
             <label for="firstname">First Name</label>
             <input
