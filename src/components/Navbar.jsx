@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../logo.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -12,7 +13,7 @@ const Navbar = () => {
           <div className="d-flex align-items-center ml-auto">
             <ul className="list list-inline mr-5 nav-left">
               <li>
-                <a href="#/">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
                 <a href="#/">My Network</a>
@@ -21,7 +22,10 @@ const Navbar = () => {
                 <a href="#/">Jobs</a>
               </li>
               <li>
-                <a href="#/">Contact </a>
+                <Link to="/login">Login </Link>
+              </li>
+              <li>
+                <Link to="/register">Register </Link>
               </li>
             </ul>
             <ul class="list list-inline">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import logo from "./logo.svg";
+import logo from "../logo.svg";
+
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -23,7 +24,7 @@ const Login = () => {
     <div className="auth--wrapper">
       <div className="auth--logo">
         <a href="#/">
-          <img src={logo} alt="Ecommerce logo" height="50" />
+          <img src={logo} alt="Ecommerce logo" height="100" />
         </a>
       </div>
       <div className="auth--head">
