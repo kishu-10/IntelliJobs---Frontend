@@ -11,7 +11,7 @@ const Home = () => {
         <div className="row row--grey ml-2 mr-2">
           <div className="container container--content col-lg-3 col-md-4 col-3 mt-4">
             <div className="container col-md-6">
-              <ul class="list footer--links">
+              <ul className="list footer--links">
                 <li>
                   <a className="navbar-brand mt-3" href="#/">
                     <img src={logo} height="80" alt="" />
@@ -30,11 +30,11 @@ const Home = () => {
                 <img src={logo} height="70" alt="" />
               </div>
               <div className="container col-lg-8 col-md-9 col-8">
-                <ul class="list footer--links">
+                <ul className="list footer--links">
                   <li>
-                    <div class="input-group">
+                    <div className="input-group">
                       <textarea
-                        class="form-control"
+                        className="form-control"
                         placeholder="Enter your status"
                         rows="6"
                       />
@@ -66,7 +66,7 @@ const Home = () => {
           </div>
           <div className="container container--content col-lg-3 col-md-4 col-3 mt-4">
             <div className="container col-md-6">
-              <ul class="list footer--links">
+              <ul className="list footer--links">
                 <li>
                   <a className="navbar-brand mt-3" href="#/">
                     <img src={logo} height="80" alt="" />

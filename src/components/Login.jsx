@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import logo from "../logo.svg";
-
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -31,9 +31,9 @@ const Login = () => {
         <h3 className="mb-1">Login</h3>
         <div className="d-flex align-items-center justify-content-between font-14">
           <span className="text-gray-500">Welcome Back!</span>
-          <a className="text-info text-underline-hover" href="#/">
+          <Link className="text-info text-underline-hover" to="/register">
             Register
-          </a>
+          </Link>
         </div>
       </div>
       <div className="auth--form">

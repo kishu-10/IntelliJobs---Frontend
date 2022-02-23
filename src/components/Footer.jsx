@@ -75,21 +75,21 @@ const Footer = () => {
                 <li className="list-head">Switch Theme</li>
                 <li>
                   <ul className="list list-inline">
-                    <span class="mr-2">Light</span>
+                    <span className="mr-2">Light</span>
                     <li>
-                      <div class="custom-control custom custom-switch">
+                      <div className="custom-control custom custom-switch">
                         <input
-                          class="custom-control-input"
+                          className="custom-control-input"
                           type="checkbox"
                           onChange={(e) => setChecked(e.currentTarget.checked)}
                           checked={checked}
                           id="customSwitch3"
                         />
                         <label
-                          class="custom-control-label"
+                          className="custom-control-label"
                           for="customSwitch3"
                         ></label>
-                        <span class="mr-2">Dark</span>
+                        <span className="mr-2">Dark</span>
                       </div>
                     </li>
                   </ul>

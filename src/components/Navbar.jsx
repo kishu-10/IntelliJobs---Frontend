@@ -28,21 +28,21 @@ const Navbar = () => {
                 <Link to="/register">Register </Link>
               </li>
             </ul>
-            <ul class="list list-inline">
+            <ul className="list list-inline">
               <li>
-                <a class="nav-link" href="#/">
-                  <i class="ic-shopping-cart"></i>
+                <a className="nav-link" href="#/">
+                  <i className="ic-shopping-cart"></i>
                   <span
                     id="order-badge-count"
-                    class="badge-pill badge-primary badge-count"
+                    className="badge-pill badge-primary badge-count"
                   >
                     ?
                   </span>
                 </a>
               </li>
               <li>
-                <a class="nav-link" href="#/">
-                  <i class="ic-user-avatar"></i>
+                <a className="nav-link" href="#/">
+                  <i className="ic-user-avatar"></i>
                 </a>
               </li>
             </ul>
