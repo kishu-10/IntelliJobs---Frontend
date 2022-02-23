@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
+import { React, useState } from "react";
+import logo from "../logo.svg";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 const Register = () => {
   const initialValues = {
@@ -14,7 +15,9 @@ const Register = () => {
     password2: "",
   };
 
-  const registerSchema = Yup.objects().shape({
+  const [formValues, setFormValues] = useState(initialValues);
+
+  const registerSchema = Yup.object().shape({
     firstName: Yup.string().required("First name is required."),
     lastName: Yup.string().required("Last name is required."),
     username: Yup.string().required("Username is required."),
@@ -24,7 +27,7 @@ const Register = () => {
       .min(8, "Password is too short - should be 8 chars minimum")
       .required("Password is required."),
     password2: Yup.string()
-      .matches(password, "Password does not match.")
+      .matches(formValues.password, "Password does not match.")
       .required("Confirmation password is required."),
   });
 
@@ -35,7 +38,7 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    axios.post("", { user }).then((res) => {
+    axios.post("", { formValues }).then((res) => {
       console.log(res);
       console.log(res.data);
     });
@@ -50,7 +53,7 @@ const Register = () => {
       <div class="auth--wrapper">
         <div class="auth--logo">
           <a href="#/">
-            <img src={logo} alt="logo" height="50" />
+            <img src={logo} alt="logo" height="100" />
           </a>
         </div>
         <div class="auth--head">
@@ -67,22 +70,20 @@ const Register = () => {
             <div class="form-group">
               <label for="firstName">First Name</label>
               <input
-                id="username"
+                id="firstName"
                 type="text"
                 class="form-control"
                 name="firstName"
-                value={firstName}
                 onChange={handleChange}
               />
             </div>
             <div class="form-group">
               <label for="lastName">Last Name</label>
               <input
-                id="username"
+                id="lastName"
                 type="text"
                 class="form-control"
                 name="lastName"
-                value={lastName}
                 onChange={handleChange}
               />
             </div>
@@ -92,7 +93,6 @@ const Register = () => {
                 type="text"
                 class="form-control"
                 name="username"
-                value={username}
                 onChange={handleChange}
               />
             </div>
@@ -102,7 +102,6 @@ const Register = () => {
                 class="form-control"
                 type="text"
                 name="phoneNumber"
-                value={phoneNumber}
                 onChange={handleChange}
               />
             </div>
@@ -112,7 +111,6 @@ const Register = () => {
                 type="email"
                 class="form-control"
                 name="email"
-                value={email}
                 onChange={handleChange}
               />
             </div>
@@ -123,7 +121,6 @@ const Register = () => {
                   type="password"
                   class="form-control"
                   name="password"
-                  value={password}
                   onChange={handleChange}
                 />
                 <button class="btn btn-icon-only" type="button">
@@ -138,7 +135,6 @@ const Register = () => {
                   type="password"
                   class="form-control"
                   name="password2"
-                  value={password2}
                   onChange={handleChange}
                 />
                 <button class="btn btn-icon-only" type="button">
