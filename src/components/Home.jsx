@@ -35,7 +35,7 @@ const Home = () => {
               <div className="container col-lg-8 col-md-9 col-8">
                 <ul className="list footer--links">
                   <li>
-                    <div className="input-group">
+                    <div className="input-group mb-4">
                       <textarea
                         className="form-control"
                         placeholder="Enter your status"

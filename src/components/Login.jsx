@@ -15,8 +15,9 @@ const Login = () => {
     password: Yup.string().required("Password is required."),
   });
 
+  
   const onSubmit = (values) => {
-    axios.post("", { values }).then((res) => {
+    axios.post("http://127.0.0.1:8000/api/token", { values }).then((res) => {
       console.log(res);
       console.log(res.data);
     });
@@ -90,10 +91,10 @@ const Login = () => {
                     >
                       <i className="ic-view-off"></i>
                     </button>
+                  </div>
                     {errors.password && touched.password && (
                       <span className="error">{errors.password}</span>
                     )}
-                  </div>
                   <div className="text-right">
                     <a
                       className="font-14 text-info text-underline-hover"
