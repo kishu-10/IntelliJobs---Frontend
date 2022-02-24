@@ -73,7 +73,7 @@ const Register = () => {
             <div className="auth--form">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label for="firstName">First Name</label>
+                  <label htmlFor="firstName">First Name</label>
                   <input
                     id="firstName"
                     type="text"
@@ -88,7 +88,7 @@ const Register = () => {
                   )}
                 </div>
                 <div className="form-group">
-                  <label for="lastName">Last Name</label>
+                  <label htmlFor="lastName">Last Name</label>
                   <input
                     id="lastName"
                     type="text"
@@ -103,7 +103,7 @@ const Register = () => {
                   )}
                 </div>
                 <div className="form-group">
-                  <label for="username">Username</label>
+                  <label htmlFor="username">Username</label>
                   <input
                     type="text"
                     className="form-control"
@@ -117,7 +117,7 @@ const Register = () => {
                   )}
                 </div>
                 <div className="form-group">
-                  <label for="phoneNumber">Phone No.</label>
+                  <label htmlFor="phoneNumber">Phone No.</label>
                   <input
                     className="form-control"
                     type="text"
@@ -131,7 +131,7 @@ const Register = () => {
                   )}
                 </div>
                 <div className="form-group">
-                  <label for="email">Email Address</label>
+                  <label htmlFor="email">Email Address</label>
                   <input
                     type="email"
                     className="form-control"
@@ -145,7 +145,7 @@ const Register = () => {
                   )}
                 </div>
                 <div className="form-group">
-                  <label for="password">Password</label>
+                  <label htmlFor="password">Password</label>
                   <div className="input-with-icon icon-right">
                     <input
                       type="password"
@@ -164,7 +164,7 @@ const Register = () => {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="confirmPassword">Confirm Password</label>
+                  <label htmlFor="confirmPassword">Confirm Password</label>
                   <div className="input-with-icon icon-right">
                     <input
                       type="password"
