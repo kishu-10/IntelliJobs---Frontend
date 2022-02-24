@@ -87,7 +87,7 @@ const Footer = () => {
                         />
                         <label
                           className="custom-control-label"
-                          for="customSwitch3"
+                          htmlFor="customSwitch3"
                         ></label>
                         <span className="mr-2">Dark</span>
                       </div>
