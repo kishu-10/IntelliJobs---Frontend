@@ -639,6 +639,7 @@ pre code {
 
 .container--content {
     border-radius: 5px;
+    margin-top: 2rem;
 }
 
 @media (min-width: 576px) {
@@ -13943,4 +13944,16 @@ body.auth {
     .auth--copyright {
         text-align: center
     }
+}
+
+.add-status-row {
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1.5rem;
+
+}
+
+.add-picture-row {
+    text-align: center;
 }
