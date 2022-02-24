@@ -1,6 +1,6 @@
 import axios from "axios";
 import logo from "../logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -15,12 +15,28 @@ const Login = () => {
     password: Yup.string().required("Password is required."),
   });
 
-  
+  const setToken = (token) => {
+    localStorage.setItem("access_token", token);
+  };
+
+  let navigate = useNavigate();
   const onSubmit = (values) => {
-    axios.post("http://127.0.0.1:8000/api/token", { values }).then((res) => {
-      console.log(res);
-      console.log(res.data);
-    });
+    const formData = new FormData();
+    formData.append("username", values.username);
+    formData.append("password", values.password);
+    axios({
+      method: "post",
+      url: "http://127.0.0.1:8000/api/token/",
+      data: formData,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then(function (response) {
+        navigate("/");
+        setToken(response.data.data.access);
+      })
+      .catch(function (response) {
+        console.log(response);
+      });
   };
 
   return (
@@ -92,9 +108,9 @@ const Login = () => {
                       <i className="ic-view-off"></i>
                     </button>
                   </div>
-                    {errors.password && touched.password && (
-                      <span className="error">{errors.password}</span>
-                    )}
+                  {errors.password && touched.password && (
+                    <span className="error">{errors.password}</span>
+                  )}
                   <div className="text-right">
                     <a
                       className="font-14 text-info text-underline-hover"
