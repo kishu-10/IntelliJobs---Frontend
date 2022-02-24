@@ -3,6 +3,8 @@ import logo from "../logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const initialValues = {
@@ -30,12 +32,19 @@ const Login = () => {
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     })
-      .then(function (response) {
+      .then((response) => {
         navigate("/");
         setToken(response.data.data.access);
       })
-      .catch(function (response) {
-        console.log(response);
+      .catch((error) => {
+        toast.error("Invalid Username or Password", {
+          position: "top-right",
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          className: "toastify-text",
+        });
+        console.log(error)
       });
   };
 
@@ -58,6 +67,7 @@ const Login = () => {
         } = formik;
         return (
           <div className="auth--wrapper">
+            <ToastContainer />
             <div className="auth--logo">
               <a href="#/">
                 <img src={logo} alt="Ecommerce logo" height="100" />
