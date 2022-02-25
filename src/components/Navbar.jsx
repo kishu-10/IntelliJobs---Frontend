@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-wrapper">
           <a className="navbar-brand mr-lg-5 mr-0" href="#/">
-            <img src={logo} height="60" alt="" />
+            <img src={logo} height="62" alt="" />
           </a>
           <div className="d-flex align-items-center ml-auto">
             <ul className="list list-inline mr-5 nav-left">

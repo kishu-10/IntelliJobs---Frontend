@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer--middle">
           <div className="row">
-            <div className="col-lg-2">
+            <div className="col-lg-2 mr-5">
               <img src={logo} height="80" alt="" />
               <ul className="list list-inline list--socials">
                 <li>
@@ -70,7 +70,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-lg-3 col-md-4">
+            <div className="col-lg-2 col-md-4">
               <ul className="list footer--links">
                 <li className="list-head">Switch Theme</li>
                 <li>
