@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import picture from "../assets/picture.png";
 import video from "../assets/video.png";
 import article from "../assets/article.png";
-import avatar from "../assets/avatar.jpg";
+import avatar from "../assets/avatar.png";
 
 const Home = () => {
   return (

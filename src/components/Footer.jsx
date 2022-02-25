@@ -1,5 +1,75 @@
 import React, { useState } from "react";
-import logo from "../logo.svg";
+import logo from "../logo.png";
+
+const darkTheme = () => {
+  var root = document.querySelector(":root");
+  document.body.style.backgroundColor = "black";
+  document.body.style.color = "white";
+  setDark(["--primary", "--white", "--light"]);
+  setLight([
+    "--dark",
+    "--gray",
+    "--gray-dark",
+    "--red",
+    "--yellow",
+    "--warning",
+    "#0a0a0a"
+  ]);
+  setGray(["--blue", "--white"]);
+
+  function setDark(properties) {
+    properties.forEach(function (prop) {
+      root.style.setProperty(prop, "black");
+    });
+  }
+  function setLight(properties) {
+    properties.forEach(function (prop) {
+      root.style.setProperty(prop, "white");
+    });
+  }
+  function setGray(properties) {
+    properties.forEach(function (prop) {
+      root.style.setProperty(prop, "#161616");
+    });
+  }
+};
+
+// function lightTheme() {
+//   var root = document.querySelector(":root");
+//   document.body.style.backgroundColor = "#f4f4f4";
+//   setDark(["--primary", "--gray-200", "--gray-800"]);
+//   setLight([
+//     "--black-2",
+//     "--black-1",
+//     "--gray-600",
+//     "--blue-700",
+//     "--blue-1",
+//     "--dark-100",
+//   ]);
+//   setPseudo(["--yellow-1"]);
+//   setGray(["--blue-100", "--white"]);
+
+//   function setDark(properties) {
+//     properties.forEach(function (prop) {
+//       root.style.removeProperty(prop, "black");
+//     });
+//   }
+//   function setLight(properties) {
+//     properties.forEach(function (prop) {
+//       root.style.removeProperty(prop, "white");
+//     });
+//   }
+//   function setGray(properties) {
+//     properties.forEach(function (prop) {
+//       root.style.removeProperty(prop, "#161616");
+//     });
+//   }
+//   function setPseudo(properties) {
+//     properties.forEach(function (prop) {
+//       root.style.removeProperty(prop, "#ffcb05");
+//     });
+//   }
+// }
 
 const Footer = () => {
   const [checked, setChecked] = useState("");
@@ -81,7 +151,10 @@ const Footer = () => {
                         <input
                           className="custom-control-input"
                           type="checkbox"
-                          onChange={(e) => setChecked(e.currentTarget.checked)}
+                          onChange={(e) => {
+                            setChecked(e.currentTarget.checked);
+                            darkTheme();
+                          }}
                           checked={checked}
                           id="customSwitch3"
                         />
