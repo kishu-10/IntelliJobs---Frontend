@@ -13,7 +13,6 @@ const darkTheme = () => {
     "--red",
     "--yellow",
     "--warning",
-    "#0a0a0a"
   ]);
   setGray(["--blue", "--white"]);
 
@@ -34,45 +33,47 @@ const darkTheme = () => {
   }
 };
 
-// function lightTheme() {
-//   var root = document.querySelector(":root");
-//   document.body.style.backgroundColor = "#f4f4f4";
-//   setDark(["--primary", "--gray-200", "--gray-800"]);
-//   setLight([
-//     "--black-2",
-//     "--black-1",
-//     "--gray-600",
-//     "--blue-700",
-//     "--blue-1",
-//     "--dark-100",
-//   ]);
-//   setPseudo(["--yellow-1"]);
-//   setGray(["--blue-100", "--white"]);
+const lightTheme = () => {
+  var root = document.querySelector(":root");
+  document.body.style.backgroundColor = "white";
+  document.body.style.color = "black";
+  setDark(["--white", "--light", "--primary"]);
+  setLight([
+    "--dark",
+    "--gray",
+    "--gray-dark",
+    "--red",
+    "--yellow",
+    "--warning",
+  ]);
+  setGray(["--blue", "--white"]);
 
-//   function setDark(properties) {
-//     properties.forEach(function (prop) {
-//       root.style.removeProperty(prop, "black");
-//     });
-//   }
-//   function setLight(properties) {
-//     properties.forEach(function (prop) {
-//       root.style.removeProperty(prop, "white");
-//     });
-//   }
-//   function setGray(properties) {
-//     properties.forEach(function (prop) {
-//       root.style.removeProperty(prop, "#161616");
-//     });
-//   }
-//   function setPseudo(properties) {
-//     properties.forEach(function (prop) {
-//       root.style.removeProperty(prop, "#ffcb05");
-//     });
-//   }
-// }
+  function setDark(properties) {
+    properties.forEach(function (prop) {
+      root.style.removeProperty(prop, "black");
+    });
+  }
+  function setLight(properties) {
+    properties.forEach(function (prop) {
+      root.style.removeProperty(prop, "white");
+    });
+  }
+  function setGray(properties) {
+    properties.forEach(function (prop) {
+      root.style.removeProperty(prop, "#161616");
+    });
+  }
+};
 
 const Footer = () => {
   const [checked, setChecked] = useState("");
+  const changeTheme = (checked) => {
+    if (checked) {
+      darkTheme();
+    } else {
+      lightTheme();
+    }
+  };
   return (
     <footer>
       <div className="container">
@@ -153,7 +154,7 @@ const Footer = () => {
                           type="checkbox"
                           onChange={(e) => {
                             setChecked(e.currentTarget.checked);
-                            darkTheme();
+                            changeTheme(e.currentTarget.checked);
                           }}
                           checked={checked}
                           id="customSwitch3"
