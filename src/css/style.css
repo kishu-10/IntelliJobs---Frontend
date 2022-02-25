@@ -11799,7 +11799,7 @@ label {
 }
 
 .list--socials {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 @media (max-width: 991.98px) {
@@ -14017,18 +14017,36 @@ body.auth {
 }
 
 .add-status-row {
-  margin-bottom: 1rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-top: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1.5rem;
 }
 
 .add-picture-row {
   text-align: center;
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .toastify-text {
   font-family: "Rubik", sans-serif;
+}
+
+.feeds-posts-container{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.feeds-job-row {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.feeds-job-desc {
+  padding-left: 1.5rem;
 }
