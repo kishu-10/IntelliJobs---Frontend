@@ -1,5 +1,5 @@
 import axios from "axios";
-import logo from "../logo.svg";
+import logo from "../logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
