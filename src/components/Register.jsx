@@ -57,9 +57,9 @@ const Register = () => {
         return (
           <div className="auth--wrapper">
             <div className="auth--logo">
-              <a href="#/">
+              <Link to="/">
                 <img src={logo} alt="logo" height="100" />
-              </a>
+              </Link>
             </div>
             <div className="auth--head">
               <h3 className="mb-1">Register</h3>
