@@ -643,6 +643,7 @@ pre code {
 .container--content {
   border-radius: 5px;
   margin-top: 2rem;
+  height: fit-content;
 }
 
 @media (min-width: 576px) {
@@ -14027,6 +14028,11 @@ body.auth {
   padding-bottom: 1rem;
 }
 
+.add-status-icon {
+  height: 32px;
+  width: 40px;
+}
+
 .toastify-text {
   font-family: "Rubik", sans-serif;
 }
@@ -14034,6 +14040,7 @@ body.auth {
 .feeds-posts-container {
   padding-left: 1rem;
   padding-right: 1rem;
+  height: fit-content;
 }
 
 .feeds-job-row {

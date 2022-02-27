@@ -1,10 +1,8 @@
 import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import picture from "../assets/picture.png";
-import video from "../assets/video.png";
-import article from "../assets/article.png";
 import avatar from "../assets/avatar.png";
+import { Icon } from "@iconify/react";
 
 const Home = () => {
   return (
@@ -46,22 +44,33 @@ const Home = () => {
             </div>
             <div className="row add-picture-row">
               <div className="col-lg-4 col-6">
-                <img className="mr-1" src={picture} height="50" alt="" />
+                <Icon
+                  className="add-status-icon"
+                  icon="flat-color-icons:picture"
+                />
                 <small>Picture</small>
               </div>
               <div className="col-lg-4 col-6">
-                <img src={video} height="50" alt="" />
+                <Icon
+                  className="add-status-icon"
+                  icon="fluent:video-clip-20-filled"
+                  style={{ color: "red" }}
+                />
                 <small>Videos</small>
               </div>
               <div className="col-lg-4 col-6">
-                <img src={article} height="50" alt="" />
+                <Icon
+                  className="add-status-icon"
+                  icon="ri:article-fill"
+                  style={{ color: "green", height: "28px" }}
+                />
                 <small>Article</small>
               </div>
             </div>
           </div>
           <div className="container container--content col-lg-3 col-md-6 col-6">
             <div className="font-weight-bold mt-3">
-            <span>Job Vacancies</span>
+              <span>Job Vacancies</span>
             </div>
             <ul className="list">
               <li>
