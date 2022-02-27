@@ -642,7 +642,6 @@ pre code {
 
 .container--content {
   border-radius: 5px;
-  margin-top: 2rem;
   height: fit-content;
 }
 
@@ -743,6 +742,10 @@ pre code {
 
 .row--grey {
   background-color: var(--light);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .no-gutters {
@@ -11507,7 +11510,8 @@ label {
   align-items: center;
   margin-top: 0.25rem;
   color: red;
-  font-size: 11.11px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .error [class^="ic-"],
@@ -13091,8 +13095,8 @@ a.hasSub + .subMenu-collapse {
 
 .section--hero {
   position: relative;
-  height: 25rem;
-  background-color: var(--light);
+  height: auto;
+  background-color: var(--light) !important;
 }
 
 @media (max-width: 1199.98px) {
@@ -14035,6 +14039,8 @@ body.auth {
 
 .toastify-text {
   font-family: "Rubik", sans-serif;
+  font-size: 14px;
+  color: black;
 }
 
 .feeds-posts-container {
