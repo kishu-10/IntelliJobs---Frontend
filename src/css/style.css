@@ -232,12 +232,12 @@
 }
 
 html[theme="dark"] {
-  --white :  #0b1622;
+  --white: #0b1622;
   --light: #0a0a0a;
-  --dark : #fff;
-  --gray : #fff;
-  --gray-light : #fff;
-  --gray-dark : #fff;
+  --dark: #fff;
+  --gray: #fff;
+  --gray-light: #fff;
+  --gray-dark: #fff;
   --primary: #3db4f2;
   --btn-primary-hover: #3db4f2;
 }
@@ -13906,7 +13906,7 @@ footer {
   padding-bottom: 3rem;
   font-size: 0.75rem;
   color: var(--gray-light);
-  border-top: 1px solid var(--light);
+  border-top: 1px solid var(--gray-light);
 }
 
 @media (max-width: 991.98px) {
@@ -14073,9 +14073,16 @@ body.auth {
   padding-right: 1rem;
   padding-bottom: 1rem;
   align-items: center;
-  border-bottom: 1px solid var(--light);
   text-align: justify;
   font-size: 14px;
+}
+
+.feeds-job-list {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.feeds-job-list:last-child {
+  border-bottom: none;
 }
 
 .feeds-job-desc {

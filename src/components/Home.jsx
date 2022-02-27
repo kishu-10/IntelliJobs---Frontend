@@ -73,7 +73,7 @@ const Home = () => {
               <span>Job Vacancies</span>
             </div>
             <ul className="list">
-              <li>
+              <li className="feeds-job-list">
                 <div className="row feeds-job-row">
                   <div className="col-lg-3">
                     <a className="navbar-brand" href="#/">
@@ -87,7 +87,7 @@ const Home = () => {
                   </div>
                 </div>
               </li>
-              <li>
+              <li className="feeds-job-list">
                 <div className="row feeds-job-row">
                   <div className="col-lg-3">
                     <a className="navbar-brand" href="#/">
