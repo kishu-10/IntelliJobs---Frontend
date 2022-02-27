@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../logo.png";
 
 const darkTheme = () => {
   var root = document.querySelector(":root");
+  localStorage.setItem("theme", "dark");
   document.body.style.backgroundColor = "black";
   document.body.style.color = "white";
   setDark(["--primary", "--white", "--light"]);
@@ -35,6 +36,7 @@ const darkTheme = () => {
 
 const lightTheme = () => {
   var root = document.querySelector(":root");
+  localStorage.setItem("theme", "light");
   document.body.style.backgroundColor = "white";
   document.body.style.color = "black";
   setDark(["--white", "--light", "--primary"]);
@@ -74,6 +76,18 @@ const Footer = () => {
       lightTheme();
     }
   };
+
+  useEffect(() => {
+    const current = localStorage.getItem("theme");
+    if (current === "dark") {
+      setChecked(true);
+      darkTheme();
+    } else {
+      setChecked("");
+      lightTheme();
+    }
+  }, [setChecked]);
+
   return (
     <footer>
       <div className="container">
