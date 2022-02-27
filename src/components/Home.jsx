@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Navbar />
       <section className="section--hero">
-        <div className="row row--grey ml-2 mr-2 text-center">
+        <div className="row row--grey text-center">
           <div className="container container--content col-lg-3 col-6">
             <div className="container col-md-6 mt-3">
               <a className="navbar-brand" href="#/">
