@@ -1,79 +1,18 @@
 import React, { useEffect, useState } from "react";
 import logo from "../logo.png";
 
-const darkTheme = () => {
-  var root = document.querySelector(":root");
-  localStorage.setItem("theme", "dark");
-  document.body.style.backgroundColor = "black";
-  document.body.style.color = "white";
-  setDark(["--primary", "--white", "--light"]);
-  setLight([
-    "--dark",
-    "--gray",
-    "--gray-dark",
-    "--red",
-    "--yellow",
-    "--warning",
-  ]);
-  setGray(["--blue", "--white"]);
-
-  function setDark(properties) {
-    properties.forEach(function (prop) {
-      root.style.setProperty(prop, "black");
-    });
-  }
-  function setLight(properties) {
-    properties.forEach(function (prop) {
-      root.style.setProperty(prop, "white");
-    });
-  }
-  function setGray(properties) {
-    properties.forEach(function (prop) {
-      root.style.setProperty(prop, "#161616");
-    });
-  }
-};
-
-const lightTheme = () => {
-  var root = document.querySelector(":root");
-  localStorage.setItem("theme", "light");
-  document.body.style.backgroundColor = "white";
-  document.body.style.color = "black";
-  setDark(["--white", "--light", "--primary"]);
-  setLight([
-    "--dark",
-    "--gray",
-    "--gray-dark",
-    "--red",
-    "--yellow",
-    "--warning",
-  ]);
-  setGray(["--blue", "--white"]);
-
-  function setDark(properties) {
-    properties.forEach(function (prop) {
-      root.style.removeProperty(prop, "black");
-    });
-  }
-  function setLight(properties) {
-    properties.forEach(function (prop) {
-      root.style.removeProperty(prop, "white");
-    });
-  }
-  function setGray(properties) {
-    properties.forEach(function (prop) {
-      root.style.removeProperty(prop, "#161616");
-    });
-  }
-};
-
 const Footer = () => {
   const [checked, setChecked] = useState("");
+
   const changeTheme = (checked) => {
     if (checked) {
-      darkTheme();
+      document.documentElement.setAttribute("theme", "dark");
+      localStorage.setItem("theme", "dark");
+      setChecked(true);
     } else {
-      lightTheme();
+      setChecked("");
+      document.documentElement.removeAttribute("theme");
+      localStorage.setItem("theme", "light");
     }
   };
 
@@ -81,10 +20,8 @@ const Footer = () => {
     const current = localStorage.getItem("theme");
     if (current === "dark") {
       setChecked(true);
-      darkTheme();
     } else {
       setChecked("");
-      lightTheme();
     }
   }, [setChecked]);
 
