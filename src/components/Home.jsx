@@ -9,7 +9,6 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <section className="section--hero">
         <div className="row row--grey text-center">
           <div className="container col-lg-3 col-6">
             <div className="container col-md-6 mt-3">
@@ -42,14 +41,14 @@ const Home = () => {
                 <div className="container col-lg-2">
                   <img src={avatar} height="90" alt="" />
                 </div>
-                <div className="container col-lg-9 col-md-9 col-6 mb-4">
+                <div className="container col-lg-9 col-md-9 col-6">
                   <ul className="list footer--links">
                     <li>
                       <div className="input-group">
                         <textarea
                           className="form-control"
                           placeholder="Enter your status"
-                          rows="6"
+                          rows="3"
                         />
                       </div>
                     </li>
@@ -235,7 +234,6 @@ const Home = () => {
             </ul>
           </div>
         </div>
-      </section>
       <Footer />
     </>
   );

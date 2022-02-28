@@ -8,9 +8,9 @@ const Navbar = () => {
     <nav className="navbar navbar-sticky">
       <div className="container">
         <div className="navbar-wrapper">
-          <a className="navbar-brand mr-lg-5 mr-0" href="#/">
+          <Link className="navbar-brand mr-lg-5 mr-0" to="/">
             <img src={logo} height="50" alt="" />
-          </a>
+          </Link>
           <div className="d-flex align-items-center ml-auto">
             <ul className="list list-inline mr-5 nav-left">
               <li>
@@ -20,7 +20,7 @@ const Navbar = () => {
                 <a href="#/">My Network</a>
               </li>
               <li>
-                <a href="#/">Jobs</a>
+                <a href="/jobs">Jobs</a>
               </li>
               <li>
                 <Link to="/login">Login </Link>
