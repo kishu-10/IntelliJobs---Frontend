@@ -463,6 +463,8 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  /* input field border radius */
+  border-radius: 5px !important;
 }
 
 button,
@@ -14040,6 +14042,7 @@ body.auth {
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .add-picture-row {
@@ -14132,4 +14135,25 @@ body.auth {
   text-align: left;
   font-size: 14px;
   margin-bottom: .5rem;
+}
+
+.jobs-list-row {
+  padding: .8rem;
+  font-size: 14px;
+  align-items: center;
+  height: fit-content;
+}
+
+.job-action-button {
+  float: right;
+}
+
+.jobs-desc-row {
+  padding-top: .8rem;
+}
+
+.jobs-desc-col{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-weight: 500;
 }
