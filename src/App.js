@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import "./css/style.css";
 import "./css/1.style.css";
 import { useEffect } from "react";
+import Jobs from "./components/Jobs";
 
 function App() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/jobs" element={<Jobs />} />
     </Routes>
   );
 }

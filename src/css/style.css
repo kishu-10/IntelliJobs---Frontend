@@ -463,6 +463,8 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  /* input field border radius */
+  border-radius: 5px !important;
 }
 
 button,
@@ -14040,6 +14042,7 @@ body.auth {
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .add-picture-row {
@@ -14081,10 +14084,9 @@ body.auth {
   margin-top: 2rem;
   background-color: var(--white);
   border-radius: 5px;
-  padding: .8rem;
-  padding-bottom: .5rem;
+  padding: 0.8rem;
+  padding-bottom: 0.5rem;
 }
-
 
 .feeds-job-row {
   padding-top: 1rem;
@@ -14111,13 +14113,13 @@ body.auth {
 .feeds-post-image {
   width: 100%;
   height: 20rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .post-actions-row {
   text-align: center;
   margin-top: 1.8rem;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   border-top: 1px solid var(--light-gray-border);
 }
 
@@ -14131,5 +14133,41 @@ body.auth {
   height: fit-content;
   text-align: left;
   font-size: 14px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
+}
+
+.jobs-list-row {
+  padding: 0.8rem;
+  font-size: 14px;
+  align-items: center;
+  height: fit-content;
+  margin-bottom: .7rem;
+  margin-top: .7rem;
+  background-color: var(--white);
+  border-radius: 5px;
+}
+
+.jobs-list-row:hover {
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.job-action-button {
+  float: right;
+}
+
+.jobs-desc-row {
+  padding-top: 0.8rem;
+}
+
+.jobs-desc-col {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-weight: 500;
+}
+
+.container--grey {
+  background-color: var(--light) !important;
 }
