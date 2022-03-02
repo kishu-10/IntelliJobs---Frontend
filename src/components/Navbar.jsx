@@ -8,16 +8,16 @@ const Navbar = () => {
     <nav className="navbar navbar-sticky">
       <div className="container">
         <div className="navbar-wrapper">
-          <Link className="navbar-brand mr-lg-5 mr-0" to="/">
+          <Link className="navbar-brand mr-lg-5 mr-0" to="/feeds">
             <img src={logo} height="50" alt="" />
           </Link>
           <div className="d-flex align-items-center ml-auto">
             <ul className="list list-inline mr-5 nav-left">
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/feeds">Home</Link>
               </li>
               <li>
-                <a href="#/">My Network</a>
+                <a href="/my-network">My Network</a>
               </li>
               <li>
                 <a href="/jobs">Jobs</a>

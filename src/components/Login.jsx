@@ -69,7 +69,7 @@ const Login = () => {
           <div className="auth--wrapper">
             <ToastContainer />
             <div className="auth--logo">
-              <Link to="/">
+              <Link to="/feeds">
                 <img src={logo} alt="Ecommerce logo" height="100" />
               </Link>
             </div>

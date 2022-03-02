@@ -7,6 +7,7 @@ import "./css/1.style.css";
 import { useEffect } from "react";
 import Jobs from "./components/Jobs";
 import Landing from "./components/Landing";
+import Network from "./components/Network";
 
 function App() {
   useEffect(() => {
@@ -20,11 +21,12 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Landing />} />
+      <Route path="/feeds" element={<Home />} />
+      <Route path="/my-network" element={<Network />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/jobs" element={<Jobs />} />
-      <Route path="/landing" element={<Landing />} />
     </Routes>
   );
 }
