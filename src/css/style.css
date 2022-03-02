@@ -222,6 +222,7 @@
   --light-gray-border: #e0e0e0;
   --dark: #0a0a0a;
   --btn-primary-hover: #0046bf;
+  --box-shadow: #a3a3a3a3;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -243,6 +244,7 @@ html[theme="dark"] {
   --light-gray-border: #fff;
   --primary: #3db4f2;
   --btn-primary-hover: #3db4f2;
+  --box-shadow: #0a0a0a;
 }
 
 *,
@@ -5122,7 +5124,7 @@ input[type="button"].btn-block {
   background-color: var(--white);
   background-clip: border-box;
   border: 1px solid var(--light);
-  border-radius: 0;
+  border-radius: 5px;
 }
 
 .card > hr {
@@ -14141,10 +14143,11 @@ body.auth {
   font-size: 14px;
   align-items: center;
   height: fit-content;
-  margin-bottom: .7rem;
-  margin-top: .7rem;
+  margin-bottom: 0.7rem;
+  margin-top: 0.7rem;
   background-color: var(--white);
   border-radius: 5px;
+  box-shadow: 2px 2px 5px 3px var(--box-shadow);
 }
 
 .jobs-list-row:hover {
@@ -14206,16 +14209,45 @@ body.auth {
   margin-bottom: -1rem;
 }
 
-.landing-page-col{
-  margin-top: 2rem;
+.landing-page-card {
+  margin: 2rem;
   padding: 1rem;
   align-items: center;
-  box-shadow: 2px 2px 5px 3px #a3a3a3;
+  box-shadow: 2px 2px 5px 3px var(--box-shadow);
 }
 
-.landing-page-col:hover{
+.landing-page-card:hover {
   -webkit-transform: scale(1.02);
   -ms-transform: scale(1.02);
   transform: scale(1.02);
   cursor: pointer;
+}
+
+
+.network-people-row{
+  margin-top: 2rem;
+  background-color: var(--white);
+  text-align: center;
+  border-radius: 5px;
+}
+
+.network-people-card{
+  padding: 1rem;
+  margin: 2rem;
+  height: auto;
+  align-items: center;
+  box-shadow: 2px 2px 5px 3px var(--box-shadow);
+}
+
+.network-people-card:hover {
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+
+.connect-people-btn{
+  width: 10rem;
+  margin-top: 1rem;
 }
