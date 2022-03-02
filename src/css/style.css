@@ -14171,3 +14171,51 @@ body.auth {
 .container--grey {
   background-color: var(--light) !important;
 }
+
+.landing-page-row {
+  width: 100%;
+  height: 44.5rem;
+  background: var(--white);
+}
+
+.landing-page-container {
+  width: 100%;
+  background: url("../assets/landing-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.landing-page-nav {
+  display: flex;
+  float: right;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem;
+  font-weight: 500 !important;
+}
+
+.landing-page-info {
+  margin-top: 5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.landing-page-title {
+  font-size: 5rem;
+  color: var(--primary);
+  margin-bottom: -1rem;
+}
+
+.landing-page-col{
+  margin-top: 2rem;
+  padding: 1rem;
+  align-items: center;
+  box-shadow: 2px 2px 5px 3px #a3a3a3;
+}
+
+.landing-page-col:hover{
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02);
+  cursor: pointer;
+}

@@ -6,6 +6,7 @@ import "./css/style.css";
 import "./css/1.style.css";
 import { useEffect } from "react";
 import Jobs from "./components/Jobs";
+import Landing from "./components/Landing";
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/jobs" element={<Jobs />} />
+      <Route path="/landing" element={<Landing />} />
     </Routes>
   );
 }
