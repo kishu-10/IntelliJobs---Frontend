@@ -14251,3 +14251,7 @@ body.auth {
   width: 10rem;
   margin-top: 1rem;
 }
+
+.dropdown-profile:hover .dropdown-menu-profile{
+  display: block;
+}

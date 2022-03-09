@@ -22,12 +22,6 @@ const Navbar = () => {
               <li>
                 <a href="/jobs">Jobs</a>
               </li>
-              <li>
-                <Link to="/login">Login </Link>
-              </li>
-              <li>
-                <Link to="/register">Register </Link>
-              </li>
             </ul>
             <ul className="list list-inline">
               <li>
@@ -37,7 +31,24 @@ const Navbar = () => {
                 />
               </li>
               <li>
+                <div class="dropdown dropdown-profile">
                 <Icon icon="carbon:user-avatar" className="navbar-icon ml-2" />
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-profile">
+                    <a class="dropdown-item" href="#/">
+                      <p class="mb-1">Kishu Maharjan</p>
+                      <p>mhrznkishu.10@gmail.com</p>
+                    </a>
+                    <Link class="dropdown-item" to="/login">
+                      Login
+                    </Link>
+                    <Link class="dropdown-item" to="/register">
+                      Register
+                    </Link>
+                    <Link class="dropdown-item" to="/">
+                      Logout
+                    </Link>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
