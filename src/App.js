@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import Jobs from "./components/Jobs";
 import Landing from "./components/Landing";
 import Network from "./components/Network";
+import JobDetail from "./components/JobDetail";
 
 function App() {
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/jobs" element={<Jobs />} />
+      <Route path="/job/1" element={<JobDetail />} />
     </Routes>
   );
 }

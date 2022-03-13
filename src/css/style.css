@@ -14223,15 +14223,14 @@ body.auth {
   cursor: pointer;
 }
 
-
-.network-people-row{
+.network-people-row {
   margin-top: 2rem;
   background-color: var(--white);
   text-align: center;
   border-radius: 5px;
 }
 
-.network-people-card{
+.network-people-card {
   padding: 1rem;
   margin: 2rem;
   height: auto;
@@ -14246,12 +14245,102 @@ body.auth {
   cursor: pointer;
 }
 
-
-.connect-people-btn{
+.connect-people-btn {
   width: 10rem;
   margin-top: 1rem;
 }
 
-.dropdown-profile:hover .dropdown-menu-profile{
+.dropdown-profile:hover .dropdown-menu-profile {
   display: block;
+}
+
+.job-detail-head {
+  width: 100%;
+  height: 30rem;
+  top: 0;
+  background: linear-gradient(180deg, #0a0a0a 30%, var(--primary));
+}
+
+.job-detail-head .img-fluid {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  object-fit: cover;
+  object-position: top;
+}
+
+.job-detail-section {
+  padding-top: 0 !important;
+  position: relative !important;
+  padding-bottom: 4.5rem;
+  font-size: 15px;
+}
+
+.job-title-div {
+  position: absolute;
+  top: 0;
+  margin-top: -20rem;
+  margin-left: 15rem;
+  padding: 0rem 2rem 2rem 2rem;
+}
+
+.job-title-desc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  color: #fff;
+  z-index: 1;
+}
+
+.card-job-detail {
+  background: var(--light);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 2rem;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.txt-primary{
+  font-weight: 500;
+  margin-top: .5rem;
+  flex-grow: 1;
+  color: var(--primary);
+}
+
+.job-detail-actions{
+  padding-top: 2rem;
+  font-size: 2rem;
+}
+
+.job-detail-desc {
+  margin-top: 1rem;
+}
+
+.job-detail-desc h2, h4{
+  color: var(--primary);
+}
+
+.job-detail-desc ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.job-detail-desc ul li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.job-detail-desc ul li:before {
+  content: "";
+  position: absolute;
+  width: .4rem;
+  height: .4rem;
+  border-radius: 50%;
+  background-color: var(--primary);
+  top: .45rem;
+  left: 0;
 }
