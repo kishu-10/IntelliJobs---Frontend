@@ -3,8 +3,8 @@ import logo from "../logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { showError } from "../utils/toast";
+
 
 const Login = () => {
   const initialValues = {
@@ -37,13 +37,7 @@ const Login = () => {
         setToken(response.data.data.access);
       })
       .catch((error) => {
-        toast.error("Invalid Username or Password", {
-          position: "top-right",
-          pauseOnHover: true,
-          draggable: false,
-          progress: undefined,
-          className: "toastify-text",
-        });
+        showError("Invalid Username or Password")
         console.log(error)
       });
   };
@@ -67,7 +61,6 @@ const Login = () => {
         } = formik;
         return (
           <div className="auth--wrapper">
-            <ToastContainer />
             <div className="auth--logo">
               <Link to="/feeds">
                 <img src={logo} alt="Ecommerce logo" height="100" />
