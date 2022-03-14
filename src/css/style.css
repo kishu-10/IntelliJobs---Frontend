@@ -14344,3 +14344,41 @@ body.auth {
   top: .45rem;
   left: 0;
 }
+
+.job-filter-row{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin-top: -10rem;
+  margin-left: 15rem;
+  padding: 0rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 5rem;
+  color: #fff;
+  z-index: 1;
+  background-color: var(--white);
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.job-filter-row input, select{
+  text-align: center;
+  background-color: var(--white);
+  height: 2.4rem;
+  width: 100%;
+  border: none;
+  border-radius: 0px !important;
+  border-bottom: var(--primary) solid 2px;
+}
+
+.job-filter-row input:focus, select:focus{
+  outline: none;
+}
+
+.job-filter-col{
+  width: inherit;
+  margin-top: 2rem;
+  margin-left: 1.5rem;
+}
