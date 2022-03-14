@@ -2,13 +2,12 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import { Routes, Route } from "react-router-dom";
-import "./css/style.css";
-import "./css/1.style.css";
 import { useEffect } from "react";
 import Jobs from "./components/Jobs";
 import Landing from "./components/Landing";
 import Network from "./components/Network";
 import JobDetail from "./components/JobDetail";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   useEffect(() => {
@@ -21,6 +20,8 @@ function App() {
   }, []);
 
   return (
+    <>
+    <ToastContainer />
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/feeds" element={<Home />} />
@@ -30,6 +31,7 @@ function App() {
       <Route path="/jobs" element={<Jobs />} />
       <Route path="/job/1" element={<JobDetail />} />
     </Routes>
+    </>
   );
 }
 
