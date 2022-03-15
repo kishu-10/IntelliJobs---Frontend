@@ -11,7 +11,7 @@ const JobDetail = () => {
       <div className="row">
         <div className="job-detail-head">
           <img className="img-fluid" src={image} alt="" />
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <div className="job-title-div">
               <div className="job-title-desc">
                 <h1>Job Title</h1>
