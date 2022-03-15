@@ -8,9 +8,6 @@ import Landing from "./components/Landing";
 import Network from "./components/Network";
 import JobDetail from "./components/JobDetail";
 import { ToastContainer } from "react-toastify";
-import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./features/users";
-import { Provider } from "react-redux";
 
 function App() {
   useEffect(() => {
@@ -22,26 +19,18 @@ function App() {
     }
   }, []);
 
-  const store = configureStore({
-    reducer: {
-      user: userReducer,
-    },
-  });
-
   return (
     <>
-      <Provider store={store}>
-        <ToastContainer />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/feeds" element={<Home />} />
-          <Route path="/my-network" element={<Network />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/jobs" element={<Jobs />} />
-          <Route path="/job/1" element={<JobDetail />} />
-        </Routes>
-      </Provider>
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/feeds" element={<Home />} />
+        <Route path="/my-network" element={<Network />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/job/1" element={<JobDetail />} />
+      </Routes>
     </>
   );
 }
