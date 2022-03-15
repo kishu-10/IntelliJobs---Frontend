@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { showError } from "../utils/toast";
-
+import { useDispatch } from "react-redux";
+import { login } from "../features/users";
 
 const Login = () => {
   const initialValues = {
@@ -21,6 +22,8 @@ const Login = () => {
     localStorage.setItem("access_token", token);
   };
 
+  const dispatch = useDispatch();
+
   let navigate = useNavigate();
   const onSubmit = (values) => {
     const formData = new FormData();
@@ -33,12 +36,25 @@ const Login = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((response) => {
-        navigate("/");
+        if (response.data.data.verified_email) {
+          navigate("/feeds");
+        } else {
+          navigate("/");
+        }
         setToken(response.data.data.access);
+        dispatch(
+          login({
+            name: response.data.data.name,
+            username: response.data.data.username,
+            email: response.data.data.email,
+            user_type: response.data.data.user_type,
+            verified_email: response.data.data.verified_email,
+          })
+        );
       })
       .catch((error) => {
-        showError("Invalid Username or Password")
-        console.log(error)
+        showError("Invalid Username or Password");
+        console.log(error);
       });
   };
 

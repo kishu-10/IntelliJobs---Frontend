@@ -2,8 +2,11 @@ import React from "react";
 import logo from "../logo.png";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const user = useSelector((state) => state.user.value);
+
   return (
     <nav className="navbar navbar-sticky">
       <div className="container">
@@ -31,20 +34,23 @@ const Navbar = () => {
                 />
               </li>
               <li>
-                <div class="dropdown dropdown-profile">
-                <Icon icon="carbon:user-avatar" className="navbar-icon ml-2" />
-                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-profile">
-                    <a class="dropdown-item" href="#/">
-                      <p class="mb-1">Kishu Maharjan</p>
-                      <p>mhrznkishu.10@gmail.com</p>
+                <div className="dropdown dropdown-profile">
+                  <Icon
+                    icon="carbon:user-avatar"
+                    className="navbar-icon ml-2"
+                  />
+                  <div className="dropdown-menu dropdown-menu-right dropdown-menu-profile">
+                    <a className="dropdown-item" href="#/">
+                      <p className="mb-1">Kishu Maharjan</p>
+                      <p>{user.email}</p>
                     </a>
-                    <Link class="dropdown-item" to="/login">
+                    <Link className="dropdown-item" to="/login">
                       Login
                     </Link>
-                    <Link class="dropdown-item" to="/register">
+                    <Link className="dropdown-item" to="/register">
                       Register
                     </Link>
-                    <Link class="dropdown-item" to="/">
+                    <Link className="dropdown-item" to="/">
                       Logout
                     </Link>
                   </div>
