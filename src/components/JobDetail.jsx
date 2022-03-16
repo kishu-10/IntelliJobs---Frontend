@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import image from "../assets/post-image.png";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { Icon } from "@iconify/react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
-const JobDetail = () => {
+const JobDetail = ({ match }) => {
+  const {
+    params: { jobId },
+  } = match;
+
+  const [job, setJob] = useState(null);
+  const navigate = useNavigate();
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `http://127.0.0.1:8000/job/${jobId}`,
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => {
+        if (response.data.data.verified_email) {
+          navigate("/feeds");
+        } else {
+          navigate("/");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -45,9 +71,9 @@ const JobDetail = () => {
             <div className="col-lg-3">
               <div className="job-detail-actions">
                 <Icon icon="bi:bookmark-check" />
-              <button className="btn btn-primary ml-3" type="submit">
-                Apply Now
-              </button>
+                <button className="btn btn-primary ml-3" type="submit">
+                  Apply Now
+                </button>
               </div>
             </div>
           </div>
@@ -65,12 +91,30 @@ const JobDetail = () => {
           <div className="job-detail-desc">
             <h2>Job Description</h2>
             <ul>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </li>
+              <li>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.{" "}
+              </li>
+              <li>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.{" "}
+              </li>
+              <li>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.{" "}
+              </li>
+              <li>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.{" "}
+              </li>
+              <li>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.{" "}
+              </li>
+              <li>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.{" "}
+              </li>
             </ul>
           </div>
         </div>

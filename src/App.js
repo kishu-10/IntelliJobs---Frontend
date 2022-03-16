@@ -3,7 +3,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import Jobs from "./components/Jobs";
+import JobList from "./components/JobList";
 import Landing from "./components/Landing";
 import Network from "./components/Network";
 import JobDetail from "./components/JobDetail";
@@ -28,7 +28,7 @@ function App() {
         <Route path="/my-network" element={<Network />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/jobs" element={<JobList />} />
         <Route path="/job/1" element={<JobDetail />} />
       </Routes>
     </>
