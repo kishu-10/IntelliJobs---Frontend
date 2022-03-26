@@ -1,47 +1,41 @@
-import React, { useEffect, useState } from "react";
 import image from "../assets/post-image.png";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { Icon } from "@iconify/react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const JobDetail = ({ match }) => {
-  const {
-    params: { jobId },
-  } = match;
-
+const JobDetail = () => {
+  const { jobId } = useParams();
   const [job, setJob] = useState(null);
-  const navigate = useNavigate();
   useEffect(() => {
-    axios({
-      method: "get",
-      url: `http://127.0.0.1:8000/job/${jobId}`,
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => {
-        if (response.data.data.verified_email) {
-          navigate("/feeds");
-        } else {
-          navigate("/");
-        }
-      })
-      .catch((error) => {
+    const fetchJob = async () => {
+      try {
+        const result = await axios.get(`http://127.0.0.1:8000/api/jobs/detail/${jobId}/`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        setJob(result.data.data)
+      } catch (error) {
         console.log(error);
-      });
-  }, []);
-
+      }
+    };
+    fetchJob();
+  }, [jobId]);
+  console.log(job)
   return (
     <>
       <Navbar />
       <div className="row">
         <div className="job-detail-head">
-          <img className="img-fluid" src={image} alt="" />
+          <img className="img-fluid" src={job?job.category.image:image} alt="" />
           <div className="col-lg-6">
             <div className="job-title-div">
               <div className="job-title-desc">
-                <h1>Job Title</h1>
-                <h3>Company Name</h3>
+                <h1>{job?job.title:null}</h1>
+                <h3>{job?job.organization:null}</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
                   fuga inventore vitae, ab aliquam voluptate veritatis
