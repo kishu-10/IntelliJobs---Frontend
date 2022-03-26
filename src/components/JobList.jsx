@@ -7,19 +7,26 @@ import Job from "./Job";
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
+  const [categories, setCategories] = useState([]);
   const fetchJobs = async () => {
     try {
-      const result = await axios.get(`http://127.0.0.1:8000/jobs/`, {
+      const result = await axios.get(`http://127.0.0.1:8000/api/jobs/`, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-      setJobs(result.data);
+      const categories = await axios.get(`http://127.0.0.1:8000/api/jobs/categories/`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setJobs(result.data.data);
+      setCategories(categories.data.data)
     } catch (error) {
       console.log(error);
     }
   };
-
+  
   useEffect(() => {
     fetchJobs();
   }, []);
@@ -45,13 +52,10 @@ const JobList = () => {
                 <input type="text" placeholder="Job Address" />
               </div>
               <div className="col-md-3 job-filter-col">
-                <select name="job-category">
-                  <option value="" disabled selected>
-                    Select Job Category
-                  </option>
-                  <option value="it">Information Technology</option>
-                  <option value="it">Information Technology</option>
-                  <option value="it">Information Technology</option>
+                <select defaultValue="" name="job-category">
+                  {categories.map((category => (
+                    <option key={category.id} value={category.id}>{category.name}</option>
+                  )))}
                 </select>
               </div>
               <div className="col-md-3 job-filter-col">
@@ -66,9 +70,9 @@ const JobList = () => {
       <div className="row--grey">
         <div className="container container--grey col-lg-8">
           <div className="grid grid-list">
-            {jobs.map((job) => {
-              <Job jobs={job} />;
-            })}
+            {jobs.map((job) => (
+              <Job key={job.id} job={job} />
+            ))}
           </div>
         </div>
       </div>
