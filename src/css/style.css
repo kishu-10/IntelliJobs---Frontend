@@ -14317,7 +14317,8 @@ body.auth {
 }
 
 .job-detail-desc {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.875rem;
 }
 
 .job-detail-desc h2, h4{
@@ -14343,6 +14344,10 @@ body.auth {
   background-color: var(--primary);
   top: .45rem;
   left: 0;
+}
+
+.job-detail-desc p{
+  text-align: justify;
 }
 
 .job-filter-row{
