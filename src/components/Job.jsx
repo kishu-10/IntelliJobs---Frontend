@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
   return (
-    <div className="d-flex jobs-list-row">
+    <Link className="d-flex jobs-list-row" to={`/job/${job.id}`}>
       <div className="col-lg-1">
-        <a className="navbar-brand" href="#/">
-          <img src={avatar} height="90" alt="" />
-        </a>
+        <div className="navbar-brand org-pic">
+          <img src={job.organization_picture?job.organization_picture:avatar} height="90" alt="" />
+        </div>
       </div>
       <div className="col-md-8 jobs-desc-col">
         <p className="font-weight-bold text-info font-16">{job.title}</p>
@@ -38,7 +38,7 @@ const Job = ({ job }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
