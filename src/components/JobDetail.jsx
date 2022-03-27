@@ -27,16 +27,14 @@ const JobDetail = () => {
     fetchJob();
   }, [jobId]);
 
-  let jobDetail = null;
-
   if (job) {
-    jobDetail = (
+    return (
       <>
         <Navbar />
         <div className="row">
           <div className="job-detail-head">
             <img className="img-fluid" src={job.category.image} alt="" />
-            <div className="col-lg-6">
+            <div className="col-lg-8">
               <div className="job-title-div">
                 <div className="job-title-desc">
                   <h1>{job.title}</h1>
@@ -120,19 +118,19 @@ const JobDetail = () => {
               </div>
               <div className="job-detail-desc">
                 <h2>Job Description</h2>
-                <p>{job.description}</p>
+                <div dangerouslySetInnerHTML={{__html:job.description}}></div>
               </div>
               <div className="job-detail-desc">
                 <h2>Required Skills</h2>
-                <p>{job.skills}</p>
+                <div dangerouslySetInnerHTML={{__html:job.skills}}></div>
               </div>
               <div className="job-detail-desc">
                 <h2>Other Specifications</h2>
-                <p>{job.other_specification}</p>
+                <div dangerouslySetInnerHTML={{__html:job.other_specification}}></div>
               </div>
               <div className="job-detail-desc">
                 <h2>Career Benefits</h2>
-                <p>{job.career_benefits}</p>
+                <div dangerouslySetInnerHTML={{__html:job.career_benefits}}></div>
               </div>
             </div>
           </div>
@@ -142,7 +140,7 @@ const JobDetail = () => {
     );
   }
 
-  return jobDetail;
+  return <>Loading ....</>;
 };
 
 export default JobDetail;

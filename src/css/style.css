@@ -14387,3 +14387,7 @@ body.auth {
   margin-top: 2rem;
   margin-left: 1.5rem;
 }
+
+.org-pic img{
+  border-radius: 50%;
+}
