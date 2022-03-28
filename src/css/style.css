@@ -2766,7 +2766,7 @@ textarea.form-control.is-invalid {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   line-height: 1.5;
-  border-radius: 0;
+  border-radius: 5px;
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
@@ -14400,4 +14400,31 @@ body.auth {
 .post-author-row img{
   border-radius: 50%;
   margin-left: .5rem;
+}
+
+
+.resume-sidebar {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: var(--white);
+  border-radius: 5px;
+  height: fit-content;
+  font-size: 14px;
+  margin-bottom: 1.5rem;
+}
+
+.resume-sidebar p{
+  text-align: center;
+  padding: .75rem;
+}
+
+.resume-container {
+  padding: 2rem 0rem 2rem 0rem;
+}
+
+.profile-details-row {
+  align-items: center;
+  padding-right: 5rem;
+  margin-left: -2.5rem;
 }

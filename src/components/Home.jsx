@@ -22,7 +22,7 @@ const Home = () => {
   },[userId, navigate])
 
   useEffect(() => {
-    const fetchJob = async () => {
+    const fetchUser = async () => {
       try {
         const result = await axios.get(
           `http://127.0.0.1:8000/api/users/detail-${userId}/`,
@@ -37,7 +37,7 @@ const Home = () => {
         console.log(error);
       }
     };
-    fetchJob();
+    fetchUser();
   }, [userId]);
 
   if (user) {
@@ -50,11 +50,11 @@ const Home = () => {
               <a className="feeds-profile-pic" href="#/">
                 <img src={user.picture?user.picture:avatar} height="80" alt="" />
               </a>
-              <ul className="list footer--links mt-3">
+              <ul className="list footer--links mt-3 mb-3">
                 <li className="font-weight-bold">{user.name}</li>
-                <li>mhrznkishu.10@gmail.com</li>
+                <li>{user.email}</li>
               </ul>
-              <div className="text-left p-3">
+              {/* <div className="text-left p-3">
                 <hr></hr>
                 <ul className="list footer--links ">
                   <li className="font-weight-bold">Education</li>
@@ -67,7 +67,7 @@ const Home = () => {
                   <li>Lorem: Lorem Ipsum</li>
                   <li>Lorem: Lorem Ipsum</li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
           <HomePost />
