@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../features/users";
 
 const Login = () => {
+
   const initialValues = {
     username: "",
     password: "",
@@ -18,8 +19,10 @@ const Login = () => {
     password: Yup.string().required("Password is required."),
   });
 
-  const setToken = (token) => {
+  const setToken = (token, userId) => {
     localStorage.setItem("access_token", token);
+    localStorage.setItem("is_logged_in", true);
+    localStorage.setItem("userId", userId);
   };
 
   const dispatch = useDispatch();
@@ -36,19 +39,28 @@ const Login = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((response) => {
-        if (response.data.data.verified_email) {
+        setToken(response.data.data.access, response.data.data.user.id);
+        if (
+          response.data.data.user.verified_email &&
+          response.data.data.user.user_type === "Candidate"
+        ) {
           navigate("/feeds");
+        } else if (
+          response.data.data.user.verified_email &&
+          response.data.data.user.user_type === "Organization"
+        ) {
+          navigate("http://127.0.0.1:8000/dashboard");
         } else {
           navigate("/");
         }
-        setToken(response.data.data.access);
         dispatch(
           login({
-            name: response.data.data.name,
-            username: response.data.data.username,
-            email: response.data.data.email,
-            user_type: response.data.data.user_type,
-            verified_email: response.data.data.verified_email,
+            id: response.data.data.user.id,
+            name: response.data.data.user.name,
+            username: response.data.data.user.username,
+            email: response.data.data.user.email,
+            user_type: response.data.data.user.user_type,
+            verified_email: response.data.data.user.verified_email,
           })
         );
       })
