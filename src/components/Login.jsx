@@ -61,6 +61,7 @@ const Login = () => {
             email: response.data.data.user.email,
             user_type: response.data.data.user.user_type,
             verified_email: response.data.data.user.verified_email,
+            picture: response.data.data.user.picture
           })
         );
       })
