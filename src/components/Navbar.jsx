@@ -24,10 +24,13 @@ const Navbar = () => {
                 <Link to="/feeds">Home</Link>
               </li>
               <li>
-                <a href="/my-network">My Network</a>
+                <Link to="/my-network">My Network</Link>
               </li>
               <li>
-                <a href="/jobs">Jobs</a>
+                <Link to="/jobs">Jobs</Link>
+              </li>
+              <li>
+                {user.user_type==="Candidate"?<Link to="/resume">Resume</Link>:<Link to="/document">Document</Link>}
               </li>
             </ul>
             <ul className="list list-inline">

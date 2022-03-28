@@ -8,6 +8,8 @@ import Landing from "./components/Landing";
 import Network from "./components/Network";
 import JobDetail from "./components/JobDetail";
 import { ToastContainer } from "react-toastify";
+import Resume from "./components/Resume";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 function App() {
   useEffect(() => {
@@ -30,6 +32,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/jobs" element={<JobList />} />
         <Route path="/job/:jobId" element={<JobDetail />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/profile/1" element={<UserProfile />} />
       </Routes>
     </>
   );
