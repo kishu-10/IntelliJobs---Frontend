@@ -34,7 +34,7 @@ const HomeJobs = () => {
               <Link to={`/job/${job.id}`}>
                 <div className="row feeds-job-row">
                   <div className="col-lg-3">
-                    <div className="navbar-brand org-pic">
+                    <div className="org-pic">
                       <img
                         src={
                           job.organization_picture

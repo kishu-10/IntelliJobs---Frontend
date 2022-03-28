@@ -14,7 +14,6 @@ const Home = () => {
 
   const userId = localStorage.getItem("userId");
   
-
   let navigate = useNavigate();
   useEffect(() => {
     if (!userId) {
@@ -48,8 +47,8 @@ const Home = () => {
         <div className="row row--grey text-center">
           <div className="container col-lg-3 col-6">
             <div className="container col-lg align-items-center">
-              <a className="navbar-brand" href="#/">
-                <img src={avatar} height="80" alt="" />
+              <a className="feeds-profile-pic" href="#/">
+                <img src={user.picture?user.picture:avatar} height="80" alt="" />
               </a>
               <ul className="list footer--links mt-3">
                 <li className="font-weight-bold">{user.name}</li>
@@ -84,8 +83,8 @@ const Home = () => {
         <div className="row row--grey text-center">
           <div className="container col-lg-3 col-6">
             <div className="container col-lg align-items-center">
-              <a className="navbar-brand" href="#/">
-                <img src={avatar} height="80" alt="" />
+              <a className="feeds-profile-pic" href="#/">
+                <img src={userStore.picture?userStore.picture:avatar} height="80" alt="" />
               </a>
               <ul className="list footer--links mt-3">
                 <li className="font-weight-bold">{userStore.name}</li>

@@ -14391,3 +14391,13 @@ body.auth {
 .org-pic img{
   border-radius: 50%;
 }
+
+.feeds-profile-pic img{
+  border-radius: 50%;
+  margin-top: 1rem;
+}
+
+.post-author-row img{
+  border-radius: 50%;
+  margin-left: .5rem;
+}
