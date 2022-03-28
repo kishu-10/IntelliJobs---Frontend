@@ -7,6 +7,10 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const user = useSelector((state) => state.user.value);
 
+  const logoutUser = () => {
+    localStorage.clear()
+  }
+
   return (
     <nav className="navbar navbar-sticky">
       <div className="container">
@@ -43,14 +47,11 @@ const Navbar = () => {
                     <a className="dropdown-item" href="#/">
                       <p className="mb-1">Kishu Maharjan</p>
                       <p>{user.email}</p>
-                    </a>
-                    <Link className="dropdown-item" to="/login">
-                      Login
-                    </Link>
+                    </a>  
                     <Link className="dropdown-item" to="/register">
                       Register
                     </Link>
-                    <Link className="dropdown-item" to="/">
+                    <Link className="dropdown-item" to="/" onClick={logoutUser}>
                       Logout
                     </Link>
                   </div>
