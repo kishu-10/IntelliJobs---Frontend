@@ -34,7 +34,7 @@ const ProfileOverview = () => {
                         ></span>
                       </li>
                       <li className="btn-upload">
-                        <form method="post" enctype="multipart/form-data">
+                        <form method="post" encType="multipart/form-data">
                           <input
                             className="d-none imgUpload"
                             type="file"
