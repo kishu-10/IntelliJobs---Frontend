@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import avatar from "../assets/avatar.png";
@@ -7,19 +7,22 @@ import HomeJobs from "./HomeJobs";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../features/users";
 
 const Home = () => {
-  const [user, setUser] = useState(null);
   const userStore = useSelector((state) => state.user.value);
 
   const userId = localStorage.getItem("userId");
-  
+
   let navigate = useNavigate();
   useEffect(() => {
     if (!userId) {
       navigate("/login");
-    } 
-  },[userId, navigate])
+    }
+  }, [userId, navigate]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -32,89 +35,63 @@ const Home = () => {
             },
           }
         );
-        setUser(result.data.data);
+        dispatch(
+          login({
+            id: result.data.data.id,
+            name: result.data.data.name,
+            username: result.data.data.username,
+            email: result.data.data.email,
+            user_type: result.data.data.user_type,
+            verified_email: result.data.data.verified_email,
+            picture: result.data.data.picture,
+          })
+        );
       } catch (error) {
         console.log(error);
       }
     };
     fetchUser();
-  }, [userId]);
+  }, [userId, dispatch]);
 
-  if (user) {
-    return (
-      <>
-        <Navbar />
-        <div className="row row--grey text-center">
-          <div className="container col-lg-3 col-6">
-            <div className="container col-lg align-items-center">
-              <a className="feeds-profile-pic" href="#/">
-                <img src={user.picture?user.picture:avatar} height="80" alt="" />
-              </a>
-              <ul className="list footer--links mt-3 mb-3">
-                <li className="font-weight-bold">{user.name}</li>
-                <li>{user.email}</li>
+  return (
+    <>
+      <Navbar />
+      <div className="row row--grey text-center">
+        <div className="container col-lg-3 col-6">
+          <div className="container col-lg align-items-center">
+            <a className="feeds-profile-pic" href="#/">
+              <img
+                src={userStore.picture ? userStore.picture : avatar}
+                height="80"
+                alt=""
+              />
+            </a>
+            <ul className="list footer--links mt-3">
+              <li className="font-weight-bold">{userStore.name}</li>
+              <li>{userStore.email}</li>
+            </ul>
+            <div className="text-left p-3">
+              <hr></hr>
+              <ul className="list footer--links ">
+                <li className="font-weight-bold">Education</li>
+                <li>Lorem: Lorem Ipsum</li>
+                <li>Lorem: Lorem Ipsum</li>
               </ul>
-              {/* <div className="text-left p-3">
-                <hr></hr>
-                <ul className="list footer--links ">
-                  <li className="font-weight-bold">Education</li>
-                  <li>Lorem: Lorem Ipsum</li>
-                  <li>Lorem: Lorem Ipsum</li>
-                </ul>
-                <hr></hr>
-                <ul className="list footer--links text-left">
-                  <li className="font-weight-bold">Skills</li>
-                  <li>Lorem: Lorem Ipsum</li>
-                  <li>Lorem: Lorem Ipsum</li>
-                </ul>
-              </div> */}
+              <hr></hr>
+              <ul className="list footer--links text-left">
+                <li className="font-weight-bold">Skills</li>
+                <li>Lorem: Lorem Ipsum</li>
+                <li>Lorem: Lorem Ipsum</li>
+              </ul>
             </div>
           </div>
-          <HomePost />
-          <HomeJobs />
         </div>
-        <Footer />
-      </>
-    );
-  } else if (userStore) {
-    return (
-      <>
-        <Navbar />
-        <div className="row row--grey text-center">
-          <div className="container col-lg-3 col-6">
-            <div className="container col-lg align-items-center">
-              <a className="feeds-profile-pic" href="#/">
-                <img src={userStore.picture?userStore.picture:avatar} height="80" alt="" />
-              </a>
-              <ul className="list footer--links mt-3">
-                <li className="font-weight-bold">{userStore.name}</li>
-                <li>{userStore.email}</li>
-              </ul>
-              <div className="text-left p-3">
-                <hr></hr>
-                <ul className="list footer--links ">
-                  <li className="font-weight-bold">Education</li>
-                  <li>Lorem: Lorem Ipsum</li>
-                  <li>Lorem: Lorem Ipsum</li>
-                </ul>
-                <hr></hr>
-                <ul className="list footer--links text-left">
-                  <li className="font-weight-bold">Skills</li>
-                  <li>Lorem: Lorem Ipsum</li>
-                  <li>Lorem: Lorem Ipsum</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <HomePost />
-          <HomeJobs />
-        </div>
-        <Footer />
-      </>
-    );
-  }
-
-  return <>Loading....</>;
+        <HomePost />
+        <HomeJobs />
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Home;
