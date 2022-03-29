@@ -14428,3 +14428,7 @@ body.auth {
   padding-right: 5rem;
   margin-left: -2.5rem;
 }
+
+.form-row select{
+  border-radius: 5px !important;
+}

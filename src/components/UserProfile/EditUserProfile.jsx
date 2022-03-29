@@ -64,12 +64,12 @@ const EditUserProfile = () => {
         <div className="col-md-3">
           <label>Mobile No.</label>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-4">
           <input
             className="form-control"
             type="text"
             name="mobile_number"
-            value="9851219269"
+            value=""
           />
           <p className="error text-danger"></p>
         </div>
@@ -78,7 +78,7 @@ const EditUserProfile = () => {
         <div className="col-md-3">
           <label>Date of Birth</label>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-4">
           <input type="date" className="form-control" />
         </div>
       </div>

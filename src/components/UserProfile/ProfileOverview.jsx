@@ -28,8 +28,7 @@ const ProfileOverview = () => {
       <div className="section--profile">
         <h3 className="text-primary">Overview</h3>
         <p className="title-desc">
-          Basic info, like your name, email, also recent orders and shipping
-          adresses.
+          Basic info, like your name, email and phone no.
         </p>
 
         <div className="row">

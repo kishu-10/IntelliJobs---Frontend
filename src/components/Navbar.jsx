@@ -1,15 +1,41 @@
-import React from "react";
+import { React, useEffect } from "react";
 import logo from "../logo.png";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import axios from "axios";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { login } from "../features/users";
 
 const Navbar = () => {
   const user = useSelector((state) => state.user.value);
 
   const logoutUser = () => {
-    localStorage.clear()
-  }
+    localStorage.clear();
+  };
+
+  const userId = localStorage.getItem("userId");
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const result = await axios.get(
+          `http://127.0.0.1:8000/api/users/detail-${userId}/`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        dispatch(login(result.data.data));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUser();
+  }, [userId, dispatch]);
 
   return (
     <nav className="navbar navbar-sticky">
@@ -30,7 +56,11 @@ const Navbar = () => {
                 <Link to="/jobs">Jobs</Link>
               </li>
               <li>
-                {user.user_type==="Candidate"?<Link to="/resume">Resume</Link>:<Link to="/document">Document</Link>}
+                {user.user_type === "Candidate" ? (
+                  <Link to="/resume">Resume</Link>
+                ) : (
+                  <Link to="/document">Document</Link>
+                )}
               </li>
             </ul>
             <ul className="list list-inline">
@@ -48,11 +78,11 @@ const Navbar = () => {
                   />
                   <div className="dropdown-menu dropdown-menu-right dropdown-menu-profile">
                     <a className="dropdown-item" href="#/">
-                      <p className="mb-1">Kishu Maharjan</p>
+                      <p className="mb-1">{user.name}</p>
                       <p>{user.email}</p>
-                    </a>  
-                    <Link className="dropdown-item" to="/register">
-                      Register
+                    </a>
+                    <Link className="dropdown-item" to="/profile">
+                      Account Settings
                     </Link>
                     <Link className="dropdown-item" to="/" onClick={logoutUser}>
                       Logout

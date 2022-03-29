@@ -4,13 +4,23 @@ import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 import ProfileOverview from "./ProfileOverview";
 import EditUserProfile from "./EditUserProfile";
+import EditAddress from "./EditAddress";
 
 const UserProfile = () => {
   const [element, setElement] = useState(null);
-  
+
   useEffect(() => {
     setElement("profileOverview");
   }, []);
+
+  let renderElement;
+  if (element === "profileOverview") {
+    renderElement = <ProfileOverview />;
+  } else if (element === "editProfile") {
+    renderElement = <EditUserProfile />;
+  } else if (element === "editAddress") {
+    renderElement = <EditAddress />;
+  }
 
   return (
     <>
@@ -22,7 +32,9 @@ const UserProfile = () => {
               <ul className="list">
                 <li>
                   <Link
-                    className={`sidebar-link ${element==="profileOverview" ? "active" : ""}`}
+                    className={`sidebar-link ${
+                      element === "profileOverview" ? "active" : ""
+                    }`}
                     onClick={() => setElement("profileOverview")}
                     to=""
                   >
@@ -31,7 +43,9 @@ const UserProfile = () => {
                 </li>
                 <li>
                   <Link
-                    className={`sidebar-link ${element==="editProfile" ? "active" : ""}`}
+                    className={`sidebar-link ${
+                      element === "editProfile" ? "active" : ""
+                    }`}
                     onClick={() => setElement("editProfile")}
                     to=""
                   >
@@ -39,19 +53,21 @@ const UserProfile = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="sidebar-link " to="/user/shipping-address/">
-                    Resume
+                  <Link
+                    className={`sidebar-link ${
+                      element === "editAddress" ? "active" : ""
+                    }`}
+                    onClick={() => setElement("editAddress")}
+                    to=""
+                  >
+                    Address
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
           <div className="col-lg-9" id="profileDetails">
-            {element === "profileOverview" ? (
-              <ProfileOverview />
-            ) : (
-              <EditUserProfile />
-            )}
+            {renderElement}
           </div>
         </div>
       </div>
