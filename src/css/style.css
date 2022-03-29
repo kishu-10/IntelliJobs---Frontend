@@ -14429,6 +14429,7 @@ body.auth {
   margin-left: -2.5rem;
 }
 
-.form-row select{
+.address-form input, select{
   border-radius: 5px !important;
+  text-align: center !important;
 }
