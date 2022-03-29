@@ -36,15 +36,7 @@ const Home = () => {
           }
         );
         dispatch(
-          login({
-            id: result.data.data.id,
-            name: result.data.data.name,
-            username: result.data.data.username,
-            email: result.data.data.email,
-            user_type: result.data.data.user_type,
-            verified_email: result.data.data.verified_email,
-            picture: result.data.data.picture,
-          })
+          login(result.data.data)
         );
       } catch (error) {
         console.log(error);
@@ -66,11 +58,11 @@ const Home = () => {
                 alt=""
               />
             </a>
-            <ul className="list footer--links mt-3">
+            <ul className="list footer--links mt-3 mb-3">
               <li className="font-weight-bold">{userStore.name}</li>
               <li>{userStore.email}</li>
             </ul>
-            <div className="text-left p-3">
+            {/* <div className="text-left p-3">
               <hr></hr>
               <ul className="list footer--links ">
                 <li className="font-weight-bold">Education</li>
@@ -83,7 +75,7 @@ const Home = () => {
                 <li>Lorem: Lorem Ipsum</li>
                 <li>Lorem: Lorem Ipsum</li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
         <HomePost />
