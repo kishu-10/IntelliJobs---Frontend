@@ -45,13 +45,23 @@ const Home = () => {
     fetchUser();
   }, [userId, dispatch]);
 
+  const handeNavigate = () => {
+    console.log(userStore.user_type)
+    if(userStore.user_type === "Organization"){
+      window.location.replace('http://127.0.0.1:8000/dashboard')
+    }else{
+      navigate("/profile")
+    }
+    
+  }
+
   return (
     <>
       <Navbar />
       <div className="row row--grey text-center">
         <div className="container col-lg-3 col-6">
           <div className="container col-lg align-items-center">
-            <Link className="feeds-profile-pic" to="/profile">
+            <Link className="feeds-profile-pic" to="" onClick={()=>handeNavigate()}>
               <img
                 src={userStore.picture ? userStore.picture : avatar}
                 height="80"

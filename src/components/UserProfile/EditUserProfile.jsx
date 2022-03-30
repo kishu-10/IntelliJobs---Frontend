@@ -154,7 +154,7 @@ const EditUserProfile = () => {
           </div>
           <div className="form-row form-group">
             <div className="col-md-3">
-              <label>Mobile No.</label>
+              <label>Mobile Number</label>
             </div>
             <div className="col-md-4">
               <input

@@ -14319,6 +14319,7 @@ body.auth {
 .job-detail-desc {
   margin-top: 1.25rem;
   margin-bottom: 1.875rem;
+  text-align: justify;
 }
 
 .job-detail-desc h2, h4{
