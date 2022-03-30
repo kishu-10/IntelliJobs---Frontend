@@ -6,8 +6,10 @@ import * as Yup from "yup";
 import { showError } from "../utils/toast";
 import { useDispatch } from "react-redux";
 import { login } from "../features/users";
+import { useEffect } from "react";
 
 const Login = () => {
+
 
   const initialValues = {
     username: "",
@@ -28,6 +30,13 @@ const Login = () => {
   const dispatch = useDispatch();
 
   let navigate = useNavigate();
+
+  useEffect(()=>{
+    if (localStorage.getItem('access_token')){
+      navigate("/feeds")
+    }
+  },[navigate])
+
   const onSubmit = (values) => {
     const formData = new FormData();
     formData.append("username", values.username);
@@ -49,7 +58,7 @@ const Login = () => {
           response.data.data.user.verified_email &&
           response.data.data.user.user_type === "Organization"
         ) {
-          navigate("http://127.0.0.1:8000/dashboard");
+          window.location.replace('http://127.0.0.1:8000/dashboard')
         } else {
           navigate("/");
         }
