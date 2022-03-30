@@ -14429,7 +14429,12 @@ body.auth {
   margin-left: -2.5rem;
 }
 
-.address-form input, select{
+.address-form input{
+  border-radius: 5px !important;
+  text-align: center !important;
+}
+
+.address-form select{
   border-radius: 5px !important;
   text-align: center !important;
 }

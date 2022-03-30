@@ -6,7 +6,7 @@ import HomePost from "./HomePost";
 import HomeJobs from "./HomeJobs";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../features/users";
 
@@ -51,13 +51,13 @@ const Home = () => {
       <div className="row row--grey text-center">
         <div className="container col-lg-3 col-6">
           <div className="container col-lg align-items-center">
-            <a className="feeds-profile-pic" href="#/">
+            <Link className="feeds-profile-pic" to="/profile">
               <img
                 src={userStore.picture ? userStore.picture : avatar}
                 height="80"
                 alt=""
               />
-            </a>
+            </Link>
             <ul className="list footer--links mt-3 mb-3">
               <li className="font-weight-bold">{userStore.name}</li>
               <li>{userStore.email}</li>
