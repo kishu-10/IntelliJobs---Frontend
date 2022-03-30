@@ -14,6 +14,9 @@ const Navbar = () => {
     localStorage.clear();
   };
 
+  const redirectToDashboard = () => {
+    window.location.replace('http://127.0.0.1:8000/dashboard')
+  }
   const userId = localStorage.getItem("userId");
 
   const dispatch = useDispatch();
@@ -81,9 +84,15 @@ const Navbar = () => {
                       <p className="mb-1">{user.name}</p>
                       <p>{user.email}</p>
                     </a>
-                    <Link className="dropdown-item" to="/profile">
-                      Account Settings
-                    </Link>
+                    {user.user_type === "Organization" ? (
+                      <Link className="dropdown-item" to="" onClick={redirectToDashboard}>
+                        Dashboard
+                      </Link>
+                    ) : (
+                      <Link className="dropdown-item" to="/profile">
+                        Account Settings
+                      </Link>
+                    )}
                     <Link className="dropdown-item" to="/" onClick={logoutUser}>
                       Logout
                     </Link>
