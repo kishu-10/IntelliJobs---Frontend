@@ -1,6 +1,6 @@
 import { React, useEffect } from "react";
 import logo from "../logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -10,12 +10,16 @@ import { login } from "../features/users";
 const Navbar = () => {
   const user = useSelector((state) => state.user.value);
 
+  const navigate = useNavigate();
+
   const logoutUser = () => {
     localStorage.clear();
+    window.location.replace('http://127.0.0.1:8000/dashboard/logout/')
+    navigate("/")
   };
 
   const redirectToDashboard = () => {
-    window.location.replace('http://127.0.0.1:8000/dashboard')
+    window.location.replace('http://127.0.0.1:8000/dashboard/')
   }
   const userId = localStorage.getItem("userId");
 

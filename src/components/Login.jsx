@@ -58,7 +58,7 @@ const Login = () => {
           response.data.data.user.verified_email &&
           response.data.data.user.user_type === "Organization"
         ) {
-          window.location.replace('http://127.0.0.1:8000/dashboard')
+          window.location.replace(`http://127.0.0.1:8000/dashboard/login/${response.data.data.user.uuid}/`)
         } else {
           navigate("/");
         }
