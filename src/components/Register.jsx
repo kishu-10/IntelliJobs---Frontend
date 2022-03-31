@@ -7,20 +7,14 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   const initialValues = {
-    firstName: "",
-    lastName: "",
     username: "",
-    phoneNumber: "",
     email: "",
     password: "",
     confirmPassword: "",
   };
 
   const registerSchema = Yup.object().shape({
-    firstName: Yup.string().required("First name is required."),
-    lastName: Yup.string().required("Last name is required."),
     username: Yup.string().required("Username is required."),
-    phoneNumber: Yup.string().required("Phone number is required."),
     email: Yup.string().email().required("Email is required."),
     password: Yup.string()
       .min(8, "Password is too short - should be 8 chars minimum")
@@ -57,9 +51,15 @@ const Register = () => {
         return (
           <div className="auth--wrapper">
             <div className="auth--logo">
-              <Link to="/feeds">
-                <img src={logo} alt="logo" height="100" />
-              </Link>
+              {localStorage.getItem("userId") ? (
+                <Link to="/feeds">
+                  <img src={logo} alt="Ecommerce logo" height="100" />
+                </Link>
+              ) : (
+                <Link to="">
+                  <img src={logo} alt="Ecommerce logo" height="100" />
+                </Link>
+              )}
             </div>
             <div className="auth--head">
               <h3 className="mb-1">Register</h3>
@@ -73,36 +73,6 @@ const Register = () => {
             <div className="auth--form">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label htmlFor="firstName">First Name</label>
-                  <input
-                    id="firstName"
-                    type="text"
-                    className="form-control"
-                    value={values.firstName}
-                    name="firstName"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.firstName && touched.firstName && (
-                    <span className="error">{errors.firstName}</span>
-                  )}
-                </div>
-                <div className="form-group">
-                  <label htmlFor="lastName">Last Name</label>
-                  <input
-                    id="lastName"
-                    type="text"
-                    className="form-control"
-                    name="lastName"
-                    value={values.lastName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.lastName && touched.lastName && (
-                    <span className="error">{errors.lastName}</span>
-                  )}
-                </div>
-                <div className="form-group">
                   <label htmlFor="username">Username</label>
                   <input
                     type="text"
@@ -114,20 +84,6 @@ const Register = () => {
                   />
                   {errors.username && touched.username && (
                     <span className="error">{errors.username}</span>
-                  )}
-                </div>
-                <div className="form-group">
-                  <label htmlFor="phoneNumber">Phone No.</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    value={values.phoneNumber}
-                    name="phoneNumber"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.phoneNumber && touched.phoneNumber && (
-                    <span className="error">{errors.phoneNumber}</span>
                   )}
                 </div>
                 <div className="form-group">
@@ -192,13 +148,13 @@ const Register = () => {
               </form>
               <p className="mt-3 mb-0 font-12">
                 By continuing you agree to our{" "}
-                <a className="text-info text-underline-hover" href="#/">
+                <Link className="text-info text-underline-hover" to="">
                   Terms and Conditions
-                </a>
+                </Link>
                 ,our{" "}
-                <a className="text-info text-underline-hover" href="#/">
+                <Link className="text-info text-underline-hover" to="">
                   Privacy Policy
-                </a>
+                </Link>
                 , and the Job Portal® Program Terms.
               </p>
             </div>
