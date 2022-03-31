@@ -9,8 +9,6 @@ import { login } from "../features/users";
 import { useEffect } from "react";
 
 const Login = () => {
-
-
   const initialValues = {
     username: "",
     password: "",
@@ -31,11 +29,11 @@ const Login = () => {
 
   let navigate = useNavigate();
 
-  useEffect(()=>{
-    if (localStorage.getItem('access_token')){
-      navigate("/feeds")
+  useEffect(() => {
+    if (localStorage.getItem("access_token")) {
+      navigate("/feeds");
     }
-  },[navigate])
+  }, [navigate]);
 
   const onSubmit = (values) => {
     const formData = new FormData();
@@ -55,10 +53,13 @@ const Login = () => {
         ) {
           navigate("/feeds");
         } else if (
-          (response.data.data.user.verified_email) &&
-          (response.data.data.user.user_type === "Organization" || response.data.data.user.user_type === "Staff") 
+          response.data.data.user.verified_email &&
+          (response.data.data.user.user_type === "Organization" ||
+            response.data.data.user.user_type === "Staff")
         ) {
-          window.location.replace(`http://127.0.0.1:8000/dashboard/login/${response.data.data.user.uuid}/`)
+          window.location.replace(
+            `http://127.0.0.1:8000/dashboard/login/${response.data.data.user.uuid}/`
+          );
         } else {
           navigate("/");
         }
@@ -70,7 +71,7 @@ const Login = () => {
             email: response.data.data.user.email,
             user_type: response.data.data.user.user_type,
             verified_email: response.data.data.user.verified_email,
-            picture: response.data.data.user.picture
+            picture: response.data.data.user.picture,
           })
         );
       })
@@ -100,9 +101,15 @@ const Login = () => {
         return (
           <div className="auth--wrapper">
             <div className="auth--logo">
-              <Link to="/feeds">
-                <img src={logo} alt="Ecommerce logo" height="100" />
-              </Link>
+              {localStorage.getItem("userId") ? (
+                <Link to="/feeds">
+                  <img src={logo} alt="Ecommerce logo" height="100" />
+                </Link>
+              ) : (
+                <Link to="">
+                  <img src={logo} alt="Ecommerce logo" height="100" />
+                </Link>
+              )}
             </div>
             <div className="auth--head">
               <h3 className="mb-1">Login</h3>
