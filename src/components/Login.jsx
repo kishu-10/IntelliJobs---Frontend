@@ -55,8 +55,8 @@ const Login = () => {
         ) {
           navigate("/feeds");
         } else if (
-          response.data.data.user.verified_email &&
-          response.data.data.user.user_type === "Organization"
+          (response.data.data.user.verified_email) &&
+          (response.data.data.user.user_type === "Organization" || response.data.data.user.user_type === "Staff") 
         ) {
           window.location.replace(`http://127.0.0.1:8000/dashboard/login/${response.data.data.user.uuid}/`)
         } else {

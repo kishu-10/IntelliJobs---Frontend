@@ -16,6 +16,7 @@ const Home = () => {
   const userId = localStorage.getItem("userId");
 
   let navigate = useNavigate();
+
   useEffect(() => {
     if (!userId) {
       navigate("/login");
@@ -35,9 +36,7 @@ const Home = () => {
             },
           }
         );
-        dispatch(
-          login(result.data.data)
-        );
+        dispatch(login(result.data.data));
       } catch (error) {
         console.log(error);
       }
@@ -45,15 +44,12 @@ const Home = () => {
     fetchUser();
   }, [userId, dispatch]);
 
-  const handeNavigate = () => {
-    console.log(userStore.user_type)
-    if(userStore.user_type === "Organization"){
-      window.location.replace('http://127.0.0.1:8000/dashboard/')
-    }else{
-      navigate("/profile")
+  const handleNavigate = () => {
+    console.log(userStore.user_type);
+    if (userStore.user_type === "Candidate") {
+      navigate("/profile");
     }
-    
-  }
+  };
 
   return (
     <>
@@ -61,7 +57,11 @@ const Home = () => {
       <div className="row row--grey text-center">
         <div className="container col-lg-3 col-6">
           <div className="container col-lg align-items-center">
-            <Link className="feeds-profile-pic" to="" onClick={()=>handeNavigate()}>
+            <Link
+              className="feeds-profile-pic"
+              to=""
+              onClick={() => handleNavigate()}
+            >
               <img
                 src={userStore.picture ? userStore.picture : avatar}
                 height="80"
