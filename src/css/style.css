@@ -3728,9 +3728,9 @@ input[type="button"].btn-block {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  color: #000;
+  color:var(--dark);
   text-decoration: none;
-  background-color: #f0f0f0;
+  background-color: var(--light);
 }
 
 .dropdown-item.active,
@@ -12914,7 +12914,7 @@ label {
 
 .dropdown-profile .dropdown-menu a:first-child p:first-child {
   font-size: 1rem;
-  color: #333;
+  color:var(--gray);
 }
 
 .caller.opened {

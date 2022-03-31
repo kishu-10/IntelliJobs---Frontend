@@ -1,6 +1,6 @@
 import { React, useEffect } from "react";
 import logo from "../logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -10,17 +10,15 @@ import { login } from "../features/users";
 const Navbar = () => {
   const user = useSelector((state) => state.user.value);
 
-  const navigate = useNavigate();
-
   const logoutUser = () => {
     localStorage.clear();
-    window.location.replace('http://127.0.0.1:8000/dashboard/logout/')
-    navigate("/")
+    window.location.replace("http://127.0.0.1:8000/dashboard/logout/");
+    window.location.replace("http://localhost:3000/");
   };
 
   const redirectToDashboard = () => {
-    window.location.replace('http://127.0.0.1:8000/dashboard/')
-  }
+    window.location.replace("http://127.0.0.1:8000/dashboard/");
+  };
   const userId = localStorage.getItem("userId");
 
   const dispatch = useDispatch();
@@ -84,12 +82,16 @@ const Navbar = () => {
                     className="navbar-icon ml-2"
                   />
                   <div className="dropdown-menu dropdown-menu-right dropdown-menu-profile">
-                    <a className="dropdown-item" href="#/">
+                    <Link className="dropdown-item" to="/profile">
                       <p className="mb-1">{user.name}</p>
                       <p>{user.email}</p>
-                    </a>
+                    </Link>
                     {user.user_type === "Organization" ? (
-                      <Link className="dropdown-item" to="" onClick={redirectToDashboard}>
+                      <Link
+                        className="dropdown-item"
+                        to=""
+                        onClick={redirectToDashboard}
+                      >
                         Dashboard
                       </Link>
                     ) : (
