@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../logo.png";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { showSuccess } from "../utils/toast";
 
 const Register = () => {
   const initialValues = {
@@ -11,6 +12,19 @@ const Register = () => {
     email: "",
     password: "",
     confirmPassword: "",
+  };
+
+  const [userType, setUserType] = useState("Candidate");
+  const [checked, setChecked] = useState("");
+
+  const handleCheckBox = (checked) => {
+    if (checked) {
+      setChecked(true);
+      setUserType("Organization");
+    } else {
+      setChecked("");
+      setUserType("Candidate");
+    }
   };
 
   const registerSchema = Yup.object().shape({
@@ -25,10 +39,26 @@ const Register = () => {
   });
 
   const onSubmit = (values) => {
-    axios.post("", { values }).then((res) => {
-      console.log(res);
-      console.log(res.data);
-    });
+    const jsonData = {
+      username: values.username,
+      email: values.email,
+      password: values.password,
+      user_type: userType,
+    };
+
+    axios({
+      method: "post",
+      url: "http://127.0.0.1:8000/api/users/register/",
+      data: jsonData,
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => {
+        showSuccess("Registered Successfully.");
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(error.response);
+      });
   };
 
   return (
@@ -136,6 +166,28 @@ const Register = () => {
                     <button className="btn btn-icon-only" type="button">
                       <i className="ic-view-off"></i>
                     </button>
+                  </div>
+                </div>
+                <div className="form-group">
+                  <div className="custom-control custom custom-switch">
+                    <input
+                      className="custom-control-input"
+                      type="checkbox"
+                      name="user_type"
+                      onChange={(e) => {
+                        setChecked(e.currentTarget.checked);
+                        handleCheckBox(e.currentTarget.checked);
+                      }}
+                      value={values.organization}
+                      id="customSwitchOrg"
+                      checked={checked}
+                    />
+                    <label
+                      className="custom-control-label"
+                      htmlFor="customSwitchOrg"
+                    >
+                      Register as an Organization?
+                    </label>
                   </div>
                 </div>
                 <button
