@@ -76,7 +76,7 @@ const Login = () => {
         );
       })
       .catch((error) => {
-        showError("Invalid Username or Password");
+        showError(error.response.data.data.message?error.response.data.data.message[0]:"Invalid Username or Password");
         console.log(error);
       });
   };

@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { showSuccess } from "../utils/toast";
+import { showError, showSuccess } from "../utils/toast";
 
 const Register = () => {
   const initialValues = {
@@ -56,8 +56,15 @@ const Register = () => {
         showSuccess("Registered Successfully.");
       })
       .catch((error) => {
-        console.log(error);
-        console.log(error.response);
+        let errorMessage;
+        if (error.response.data.data.username) {
+          errorMessage = error.response.data.data.username[0];
+        } else if (error.response.data.data.message) {
+          errorMessage = error.response.data.data.message[0];
+        } else if (error.response.data.data.email) {
+          errorMessage = error.response.data.data.email[0];
+        }
+        showError(errorMessage);
       });
   };
 
@@ -209,6 +216,10 @@ const Register = () => {
                 </Link>
                 , and the Job Portal® Program Terms.
               </p>
+              {/* <p>
+                Almost done... We'll send an email to joe.doe@gmail.com in 5
+                minutes. Open it up to activate your account.
+              </p> */}
             </div>
           </div>
         );
