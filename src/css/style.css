@@ -3728,7 +3728,7 @@ input[type="button"].btn-block {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  color:var(--dark);
+  color: var(--dark);
   text-decoration: none;
   background-color: var(--light);
 }
@@ -12914,7 +12914,7 @@ label {
 
 .dropdown-profile .dropdown-menu a:first-child p:first-child {
   font-size: 1rem;
-  color:var(--gray);
+  color: var(--gray);
 }
 
 .caller.opened {
@@ -14304,14 +14304,14 @@ body.auth {
   border-radius: 4px;
 }
 
-.txt-primary{
+.txt-primary {
   font-weight: 500;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   flex-grow: 1;
   color: var(--primary);
 }
 
-.job-detail-actions{
+.job-detail-actions {
   padding-top: 2rem;
   font-size: 2rem;
 }
@@ -14322,7 +14322,8 @@ body.auth {
   text-align: justify;
 }
 
-.job-detail-desc h2, h4{
+.job-detail-desc h2,
+h4 {
   color: var(--primary);
 }
 
@@ -14339,19 +14340,19 @@ body.auth {
 .job-detail-desc ul li:before {
   content: "";
   position: absolute;
-  width: .4rem;
-  height: .4rem;
+  width: 0.4rem;
+  height: 0.4rem;
   border-radius: 50%;
   background-color: var(--primary);
-  top: .45rem;
+  top: 0.45rem;
   left: 0;
 }
 
-.job-detail-desc p{
+.job-detail-desc p {
   text-align: justify;
 }
 
-.job-filter-row{
+.job-filter-row {
   width: 100%;
   position: absolute;
   top: 0;
@@ -14369,7 +14370,8 @@ body.auth {
   border-radius: 4px;
 }
 
-.job-filter-row input, select{
+.job-filter-row input,
+select {
   text-align: center;
   background-color: var(--white);
   height: 2.4rem;
@@ -14379,30 +14381,30 @@ body.auth {
   border-bottom: var(--primary) solid 2px;
 }
 
-.job-filter-row input:focus, select:focus{
+.job-filter-row input:focus,
+select:focus {
   outline: none;
 }
 
-.job-filter-col{
+.job-filter-col {
   width: inherit;
   margin-top: 2rem;
   margin-left: 1.5rem;
 }
 
-.org-pic img{
+.org-pic img {
   border-radius: 50%;
 }
 
-.feeds-profile-pic img{
+.feeds-profile-pic img {
   border-radius: 50%;
   margin-top: 1rem;
 }
 
-.post-author-row img{
+.post-author-row img {
   border-radius: 50%;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
-
 
 .resume-sidebar {
   width: 100%;
@@ -14415,9 +14417,9 @@ body.auth {
   margin-bottom: 1.5rem;
 }
 
-.resume-sidebar p{
+.resume-sidebar p {
   text-align: center;
-  padding: .75rem;
+  padding: 0.75rem;
 }
 
 .resume-container {
@@ -14430,12 +14432,22 @@ body.auth {
   margin-left: -2.5rem;
 }
 
-.address-form input{
+.address-form input {
   border-radius: 5px !important;
   text-align: center !important;
 }
 
-.address-form select{
+.address-form select {
   border-radius: 5px !important;
   text-align: center !important;
+}
+
+.mantine-hgwlez {
+  font-weight: 550;
+  color: var(--dark);
+}
+
+.mantine-10o5s20{
+  color: var(--dark);
+  font-size: 14px;
 }
