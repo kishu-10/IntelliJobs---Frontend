@@ -8,7 +8,7 @@ import Landing from "./components/Landing";
 import Network from "./components/Network";
 import JobDetail from "./components/JobDetail";
 import { ToastContainer } from "react-toastify";
-import Resume from "./components/Resume";
+import Resume from "./components/Resume/Resume";
 import UserProfile from "./components/UserProfile/UserProfile";
 
 function App() {
