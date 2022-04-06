@@ -44,10 +44,12 @@ const Home = () => {
     fetchUser();
   }, [userId, dispatch]);
 
-  const handleNavigate = () => {
-    console.log(userStore.user_type);
+  const handleNavigate = (evt) => {
+    evt.preventDefault();
     if (userStore.user_type === "Candidate") {
       navigate("/profile");
+    } else {
+      window.location.replace("http://127.0.0.1:8000/dashboard/");
     }
   };
 
@@ -60,18 +62,18 @@ const Home = () => {
             <Link
               className="feeds-profile-pic"
               to=""
-              onClick={() => handleNavigate()}
+              onClick={handleNavigate.bind(this)}
             >
               <img
                 src={userStore.picture ? userStore.picture : avatar}
                 height="80"
                 alt=""
               />
+              <ul className="list footer--links mt-3 mb-3">
+                <li className="font-weight-bold">{userStore.name}</li>
+                <li>{userStore.email}</li>
+              </ul>
             </Link>
-            <ul className="list footer--links mt-3 mb-3">
-              <li className="font-weight-bold">{userStore.name}</li>
-              <li>{userStore.email}</li>
-            </ul>
             {/* <div className="text-left p-3">
               <hr></hr>
               <ul className="list footer--links ">

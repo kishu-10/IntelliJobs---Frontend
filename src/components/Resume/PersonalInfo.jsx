@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const PersonalInfo = () => {
   const userId = localStorage.getItem("userId");
@@ -24,6 +23,11 @@ const PersonalInfo = () => {
     };
     fetchUserProfile();
   }, [userId]);
+
+  
+  function handleSubmit() {
+
+  }
 
   function handleChange(event) {
     const value = event.target.value;
@@ -90,6 +94,7 @@ const PersonalInfo = () => {
                 <div className="card-title mt-5">
                   <h4 className="text-primary">Additional Info's</h4>
                 </div>
+                <form onSubmit={handleSubmit}>
                 <div className="form-row form-group">
                   <div className="col-md-4">
                     <label>Profession</label>
@@ -119,13 +124,25 @@ const PersonalInfo = () => {
                     />
                   </div>
                 </div>
-                <div className="form-row mt-4">
-                  <div className="col-md-9 font-14 offset-md-10">
-                    <Link type="submit" className="text-primary ml-3" to="">
-                      Save Changes
-                    </Link>
+                <div className="form-row form-group">
+                  <div className="col-md-12">
+                    <label>Summary</label>
+                    <textarea
+                      className="form-control"
+                      name="website"
+                      onChange={handleChange}
+                      rows="5"
+                    />
                   </div>
                 </div>
+                <div className="form-row mt-4 pr-3">
+                  <div className="col-md-9 offset-md-10">
+                    <button type="submit" className="btn btn-outline-primary ">
+                      Save Changes
+                    </button>
+                  </div>
+                </div>
+                </form>
               </div>
             </div>
           </div>

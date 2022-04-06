@@ -5968,7 +5968,7 @@ a.close.disabled {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 1.5rem-0.25rem;
+  padding: 0 1.5rem 0.25rem;
   border-top: 1px solid var(--light);
   border-bottom-right-radius: -1px;
   border-bottom-left-radius: -1px;
@@ -14443,8 +14443,9 @@ select:focus {
 }
 
 .mantine-hgwlez {
-  font-weight: 550;
+  font-weight: 510;
   color: var(--dark);
+  font-size: 15px;
 }
 
 .mantine-10o5s20{
