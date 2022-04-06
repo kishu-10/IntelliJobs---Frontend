@@ -17,32 +17,39 @@ const Skills = () => {
         />{" "}
         Education
       </button>
-      <h2 className="mb-4 text-primary">Personal Info</h2>
-      <Accordion iconPosition="left" disableIconRotation>
-        <Accordion.Item
-          label="Education"
-          icon={
-            <Icon
-              icon="fa6-solid:user-graduate"
-              fontSize={20}
-              color={"var(--primary)"}
-            />
-          }
-        >
-          Colors, fonts, shadows and many other parts are customizable to fit
-          your design needs
-        </Accordion.Item>
+      <h3 className="text-primary">Skills</h3>
+      <p className="title-desc">
+        Basic info, like your name, email and phone no.
+      </p>
+      <div className="row">
+        <div className="col-lg">
+          <Accordion iconPosition="left" disableIconRotation>
+            <Accordion.Item
+              label="Education"
+              icon={
+                <Icon
+                  icon="fa6-solid:user-graduate"
+                  fontSize={20}
+                  color={"var(--primary)"}
+                />
+              }
+            >
+              Colors, fonts, shadows and many other parts are customizable to
+              fit your design needs
+            </Accordion.Item>
 
-        <Accordion.Item label="Flexibility">
-          Configure components appearance and behavior with vast amount of
-          settings or overwrite any part of component styles
-        </Accordion.Item>
+            <Accordion.Item label="Flexibility">
+              Configure components appearance and behavior with vast amount of
+              settings or overwrite any part of component styles
+            </Accordion.Item>
 
-        <Accordion.Item label="No annoying focus ring">
-          With new :focus-visible pseudo-class focus ring appears only when user
-          navigates with keyboard
-        </Accordion.Item>
-      </Accordion>
+            <Accordion.Item label="No annoying focus ring">
+              With new :focus-visible pseudo-class focus ring appears only when
+              user navigates with keyboard
+            </Accordion.Item>
+          </Accordion>
+        </div>
+      </div>
     </div>
   );
 };
