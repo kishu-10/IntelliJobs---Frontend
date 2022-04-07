@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { showError, showSuccess } from "../../utils/toast";
+import { Icon } from "@iconify/react";
 
 const PersonalInfo = () => {
   const userId = localStorage.getItem("userId");
@@ -75,7 +76,12 @@ const PersonalInfo = () => {
   if (user) {
     return (
       <div className="section--profile">
-        <h3 className="text-primary">Overview</h3>
+        <h3 className="text-primary"><Icon
+          className="mr-2"
+          icon="carbon:user-avatar-filled-alt"
+          fontSize={40}
+          color={"var(--primary)"}
+        />Overview</h3>
         <p className="title-desc">
           Basic info, like your name, email and phone no.
         </p>
