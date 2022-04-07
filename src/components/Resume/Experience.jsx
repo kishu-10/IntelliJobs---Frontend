@@ -2,7 +2,7 @@ import React from "react";
 import { Accordion } from "@mantine/core";
 import { Icon } from "@iconify/react";
 
-const Education = () => {
+const Experience = () => {
   return (
     <div className="section--profile">
       <button
@@ -15,45 +15,37 @@ const Education = () => {
           fontSize={14}
           style={{ paddingBottom: "1.5px" }}
         />{" "}
-        Education
+        Experience
       </button>
       <h3 className="text-primary">
         <Icon
           className="mr-2"
-          icon="fa6-solid:user-graduate"
+          icon="ic:round-work"
           fontSize={25}
           color={"var(--primary)"}
-          style={{ paddingBottom: "1.5px" }}
+          style={{ marginBottom: "4px" }}
         />
-        Education
+        Work Experience
       </h3>
       <p className="title-desc">
-        Basic education infos, like your school, college and university.
+        Basic work experience infos, like your previous and current office
       </p>
       <div className="row">
         <div className="col-lg">
           <Accordion iconPosition="right" initialItem={-1}>
-            <Accordion.Item label="Education">
+            <Accordion.Item label="Experience">
               <div className="container education-card">
                 <div className="form-row form-group">
-                  <div className="col-md-4">
-                    <label>University</label>
+                  <div className="col-md-6">
+                    <label>Job Title</label>
                     <input
                       className="form-control"
                       type="text"
                       name="first_name"
                     />
                   </div>
-                  <div className="col-md-4">
-                    <label>Address</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="first_name"
-                    />
-                  </div>
-                  <div className="col-md-4">
-                    <label>Degree</label>
+                  <div className="col-md-6">
+                    <label>Company</label>
                     <input
                       className="form-control"
                       type="text"
@@ -63,7 +55,7 @@ const Education = () => {
                 </div>
                 <div className="form-row form-group">
                   <div className="col-md-4">
-                    <label>Field of Study</label>
+                    <label>Address</label>
                     <input
                       className="form-control"
                       type="text"
@@ -107,31 +99,10 @@ const Education = () => {
               </div>
             </Accordion.Item>
           </Accordion>
-          {/* <Accordion iconPosition="right" multiple initialItem={0}>
-                
-                    <Accordion.Item
-                        key={field.key}
-                        icon={
-                            <AccordionMenu>
-                                <Menu.Item
-                                    onClick={() => removeItem(i, field.id)}
-                                    icon={<MdDelete />}
-                                >
-                                    Delete
-                                </Menu.Item>
-                            </AccordionMenu>
-                        }
-                        label={
-                            <EducationAccordionLabel i={i} control={control} />
-                        }
-                    >
-                        
-                    </Accordion.Item>
-            </Accordion> */}
         </div>
       </div>
     </div>
   );
 };
 
-export default Education;
+export default Experience;

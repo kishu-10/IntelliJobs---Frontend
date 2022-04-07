@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import Education from "./Education";
+import Experience from "./Experience";
 import PersonalInfo from "./PersonalInfo";
 import Skills from "./Skills";
 
@@ -20,6 +21,8 @@ const Resume = () => {
     renderElement = <Education />;
   } else if (element === "resumeSkills") {
     renderElement = <Skills />;
+  } else if (element === "resumeExperience") {
+    renderElement = <Experience />;
   }
 
   return (
@@ -55,6 +58,17 @@ const Resume = () => {
                 <li>
                   <Link
                     className={`sidebar-link ${
+                      element === "resumeExperience" ? "active" : ""
+                    }`}
+                    onClick={() => setElement("resumeExperience")}
+                    to=""
+                  >
+                    Experience
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={`sidebar-link ${
                       element === "resumeSkills" ? "active" : ""
                     }`}
                     onClick={() => setElement("resumeSkills")}
@@ -71,22 +85,6 @@ const Resume = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="row row--grey text-center">
-      <div className="container row--grey col-lg-3 col-6">
-            <div className='resume-sidebar col-lg-8'>
-                <p>Personal Details</p>
-            </div>
-            <div className='resume-sidebar col-lg-8'>
-                <p>Education</p>
-            </div>
-            <div className='resume-sidebar col-lg-8'>
-                <p>Skills</p>
-            </div>
-      </div>
-      <div className="container col-lg-9 col-9">
-      </div>
-    </div> */}
       <Footer />
     </>
   );

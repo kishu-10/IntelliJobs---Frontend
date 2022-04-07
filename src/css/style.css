@@ -218,6 +218,7 @@
   --warning: #908309;
   --danger: #d02d2d;
   --light: #e0e0e0;
+  --light-border: #e0e0e0;
   --gray-border: #a3a3a3;
   --light-gray-border: #e0e0e0;
   --dark: #0a0a0a;
@@ -235,10 +236,10 @@
 }
 
 html[theme="dark"] {
-  --white: #0b1622;
-  --light: #0a0a0a;
+  --white: #152232;
+  --light: #0f1724;
   --dark: #fff;
-  --gray: #a3a3a3;
+  --gray: #fff;
   --gray-light: #fff;
   --gray-dark: #fff;
   --light-gray-border: #fff;
@@ -5123,7 +5124,7 @@ input[type="button"].btn-block {
   word-wrap: break-word;
   background-color: var(--white);
   background-clip: border-box;
-  border: 1px solid var(--light);
+  border: 1px solid var(--light-border);
   border-radius: 5px;
 }
 
@@ -5173,7 +5174,7 @@ input[type="button"].btn-block {
   padding: 0.75rem 1.5rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px solid var(--light-border);
 }
 
 .card-header:first-child {
@@ -10910,7 +10911,7 @@ p {
 .card--profile .card-title {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px solid var(--light-border);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -14214,6 +14215,7 @@ body.auth {
   padding: 1rem;
   align-items: center;
   box-shadow: 2px 2px 5px 3px var(--box-shadow);
+  border: none;
 }
 
 .landing-page-card:hover {
@@ -14236,6 +14238,7 @@ body.auth {
   height: auto;
   align-items: center;
   box-shadow: 2px 2px 5px 3px var(--box-shadow);
+  border: none;
 }
 
 .network-people-card:hover {
@@ -14374,6 +14377,7 @@ h4 {
 select {
   text-align: center;
   background-color: var(--white);
+  color: var(--dark);
   height: 2.4rem;
   width: 100%;
   border: none;
@@ -14442,13 +14446,38 @@ select:focus {
   text-align: center !important;
 }
 
-.mantine-hgwlez {
-  font-weight: 510;
-  color: var(--dark);
-  font-size: 15px;
+.mantine-Accordion-item {
+  margin-bottom: 1rem;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  font-size: 0.875rem;
 }
 
-.mantine-10o5s20{
+.mantine-Accordion-label {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 16px;
+  padding-left: 1rem;
+}
+
+
+.mantine-Accordion-item .mantine-Accordion-control:hover{
+  color: var(--dark) !important;
+  background-color: transparent;
+}
+
+.mantine-Accordion-item svg{
   color: var(--dark);
-  font-size: 14px;
+}
+
+.education-card label{
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.education-card input{
+  color: var(--dark);
+  font-size: 13px;
 }

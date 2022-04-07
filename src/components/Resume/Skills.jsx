@@ -15,37 +15,44 @@ const Skills = () => {
           fontSize={14}
           style={{ paddingBottom: "1.5px" }}
         />{" "}
-        Education
+        Skills
       </button>
-      <h3 className="text-primary">Skills</h3>
+      <h3 className="text-primary">
+        <Icon
+          className="mr-2"
+          icon="ri:user-star-fill"
+          fontSize={30}
+          color={"var(--primary)"}
+          style={{ marginBottom: "4px" }}
+        />
+        Skills
+      </h3>
       <p className="title-desc">
-        Basic info, like your name, email and phone no.
+        Basic education infos, like your school, college and university.
       </p>
       <div className="row">
         <div className="col-lg">
-          <Accordion iconPosition="left" disableIconRotation>
-            <Accordion.Item
-              label="Education"
-              icon={
-                <Icon
-                  icon="fa6-solid:user-graduate"
-                  fontSize={20}
-                  color={"var(--primary)"}
-                />
-              }
-            >
-              Colors, fonts, shadows and many other parts are customizable to
-              fit your design needs
-            </Accordion.Item>
-
-            <Accordion.Item label="Flexibility">
-              Configure components appearance and behavior with vast amount of
-              settings or overwrite any part of component styles
-            </Accordion.Item>
-
-            <Accordion.Item label="No annoying focus ring">
-              With new :focus-visible pseudo-class focus ring appears only when
-              user navigates with keyboard
+          <Accordion iconPosition="right" initialItem={-1}>
+            <Accordion.Item label="Skills">
+              <div className="container education-card">
+                <div className="form-row form-group">
+                  <div className="col-md-4">
+                    <label>Title</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="first_name"
+                    />
+                  </div>
+                </div>
+                <div className="form-row mt-4 ml-5">
+                  <div className="col-md-9 offset-md-11">
+                    <button className="btn btn-sm font-14 ml-4 btn-danger">
+                      <Icon icon="fluent:delete-24-filled" color="white" />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </Accordion.Item>
           </Accordion>
         </div>
