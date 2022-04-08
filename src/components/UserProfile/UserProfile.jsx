@@ -25,7 +25,7 @@ const UserProfile = () => {
   return (
     <>
       <Navbar />
-      <div className="container mt-4 mb-4">
+      <div className="resume-container">
         <div className="row">
           <div className="col-lg-3">
             <div className="sidebar-list">
