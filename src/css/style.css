@@ -208,6 +208,9 @@
   --teal: #20c997;
   --cyan: #17a2b8;
   --white: #fff;
+  --resume-bg: #fff;
+  --sidebar-border: #fff;
+  --accordion-color: #fff;
   --gray: #4d4d4d;
   --gray-light: #666;
   --gray-dark: #1a1a1a;
@@ -237,7 +240,10 @@
 
 html[theme="dark"] {
   --white: #152232;
+  --sidebar-border: #152232;
+  --accordion-color: #152232;
   --light: #0f1724;
+  --resume-bg: #0f1724;
   --dark: #fff;
   --gray: #fff;
   --gray-light: #fff;
@@ -245,7 +251,7 @@ html[theme="dark"] {
   --light-gray-border: #fff;
   --primary: #3db4f2;
   --btn-primary-hover: #3db4f2;
-  --box-shadow: #0a0a0a;
+  --box-shadow: #0a0a0a; 
 }
 
 *,
@@ -13012,7 +13018,7 @@ a.hasSub + .subMenu-collapse {
 
 .sidebar-list {
   height: 100%;
-  border-right: 1px solid var(--light);
+  border-right: 1px solid var(--sidebar-border);
 }
 
 @media (max-width: 991.98px) {
@@ -14427,7 +14433,15 @@ select:focus {
 }
 
 .resume-container {
-  padding: 2rem 0rem 2rem 0rem;
+  width: 100%;
+  padding-left: 7rem;
+  padding-right: 7rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  height: fit-content;
+  background-color: var(--resume-bg);
 }
 
 .profile-details-row {
@@ -14451,6 +14465,7 @@ select:focus {
   border: 1px solid var(--gray-border);
   border-radius: 5px;
   font-size: 0.875rem;
+  background-color: var(--accordion-color);
 }
 
 .mantine-Accordion-label {

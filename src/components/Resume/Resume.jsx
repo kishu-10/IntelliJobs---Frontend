@@ -28,7 +28,7 @@ const Resume = () => {
   return (
     <>
       <Navbar />
-      <div className="container resume-container">
+      <div className="resume-container">
         <div className="row">
           <div className="col-lg-2">
             <div className="sidebar-list">
