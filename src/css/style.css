@@ -14090,7 +14090,7 @@ body.auth {
 
 .feeds-posts-container {
   height: fit-content;
-  margin-top: 2rem;
+  margin-bottom: 2rem;
   background-color: var(--white);
   border-radius: 5px;
   padding: 0.8rem;
@@ -14121,8 +14121,9 @@ body.auth {
 
 .feeds-post-image {
   width: 100%;
-  height: 20rem;
+  height: 28rem;
   margin-bottom: 0.5rem;
+  object-fit: cover;
 }
 
 .post-actions-row {

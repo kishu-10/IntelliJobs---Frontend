@@ -55,6 +55,11 @@ const Skills = () => {
               </div>
             </Accordion.Item>
           </Accordion>
+          <div class="col-md-9 offset-md-11 pl-2">
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </div>

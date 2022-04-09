@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../features/users";
+import { Icon } from "@iconify/react";
 
 const Home = () => {
   const userStore = useSelector((state) => state.user.value);
@@ -74,20 +75,21 @@ const Home = () => {
                 <li>{userStore.email}</li>
               </ul>
             </Link>
-            {/* <div className="text-left p-3">
-              <hr></hr>
-              <ul className="list footer--links ">
-                <li className="font-weight-bold">Education</li>
-                <li>Lorem: Lorem Ipsum</li>
-                <li>Lorem: Lorem Ipsum</li>
+            <hr />
+            <div className="text-right">
+              <ul className="list footer--links mb-3">
+                <li className="font-weight-bold">
+                  <Link className="text-primary" to={""}>
+                    <Icon
+                      icon="fluent:add-12-filled"
+                      fontSize={14}
+                      style={{ paddingBottom: "1.5px" }}
+                    />{" "}
+                    Status
+                  </Link>{" "}
+                </li>
               </ul>
-              <hr></hr>
-              <ul className="list footer--links text-left">
-                <li className="font-weight-bold">Skills</li>
-                <li>Lorem: Lorem Ipsum</li>
-                <li>Lorem: Lorem Ipsum</li>
-              </ul>
-            </div> */}
+            </div>
           </div>
         </div>
         <HomePost />
