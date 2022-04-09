@@ -52,7 +52,7 @@ const JobDetail = () => {
           </div>
         </div>
         <section className="job-detail-section">
-          <div className="container pl-5">
+          <div className="container job-detail-container pl-5">
             <div className="row">
               <div className="col-lg-9 ml-3">
                 <h2 className="txt-primary pt-3">About Job</h2>
