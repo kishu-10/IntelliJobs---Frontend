@@ -69,12 +69,6 @@ const Navbar = () => {
             </ul>
             <ul className="list list-inline">
               <li>
-                <Icon
-                  icon="clarity:notification-line"
-                  className="navbar-icon"
-                />
-              </li>
-              <li>
                 <div className="dropdown dropdown-profile">
                   <Icon
                     icon="carbon:user-avatar"
