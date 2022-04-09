@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import ProfileOverview from "./ProfileOverview";
 import EditUserProfile from "./EditUserProfile";
 import EditAddress from "./EditAddress";
+import UserCV from "./UserCV";
+import JobWishlist from "./JobWishlist";
 
 const UserProfile = () => {
   const [element, setElement] = useState(null);
@@ -20,6 +22,10 @@ const UserProfile = () => {
     renderElement = <EditUserProfile />;
   } else if (element === "editAddress") {
     renderElement = <EditAddress />;
+  } else if (element === "userCv") {
+    renderElement = <UserCV />;
+  } else if (element === "jobWishlist") {
+    renderElement = <JobWishlist />;
   }
 
   return (
@@ -61,6 +67,28 @@ const UserProfile = () => {
                     to=""
                   >
                     Address
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={`sidebar-link ${
+                      element === "userCv" ? "active" : ""
+                    }`}
+                    onClick={() => setElement("userCv")}
+                    to=""
+                  >
+                    Curriculum Vitae
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={`sidebar-link ${
+                      element === "jobWishlist" ? "active" : ""
+                    }`}
+                    onClick={() => setElement("jobWishlist")}
+                    to=""
+                  >
+                    Saved Jobs
                   </Link>
                 </li>
               </ul>
