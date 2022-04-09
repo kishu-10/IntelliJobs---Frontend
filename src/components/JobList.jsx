@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import image from "../assets/post-image.png";
 import axios from "axios";
 import Job from "./Job";
+import { useForm } from "react-hook-form";
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
@@ -15,21 +16,45 @@ const JobList = () => {
           "Content-Type": "application/json",
         },
       });
-      const categories = await axios.get(`http://127.0.0.1:8000/api/jobs/categories/`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const categories = await axios.get(
+        `http://127.0.0.1:8000/api/jobs/categories/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       setJobs(result.data.data);
-      setCategories(categories.data.data)
+      setCategories(categories.data.data);
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   useEffect(() => {
     fetchJobs();
   }, []);
+
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    const filterJobs = async () => {
+      try {
+        const result = await axios.get(
+          `http://127.0.0.1:8000/api/jobs/?category=${data.category}&title=${data.title}&address=${data.address}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        setJobs(result.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    filterJobs();
+  };
 
   return (
     <>
@@ -44,26 +69,40 @@ const JobList = () => {
                 <p>Search Between More Than 50,000 Open Jobs</p>
               </div>
             </div>
-            <div className="row job-filter-row">
-              <div className="col-md-3 job-filter-col">
-                <input type="text" placeholder="Job Title" />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="row job-filter-row">
+                <div className="col-md-3 job-filter-col">
+                  <input
+                    type="text"
+                    {...register("title")}
+                    placeholder="Job Title"
+                  />
+                  {/* <input type="text" placeholder="Job Title" /> */}
+                </div>
+                <div className="col-md-3 job-filter-col">
+                  <input
+                    type="text"
+                    {...register("address")}
+                    placeholder="Job Address"
+                  />
+                  {/* <input type="text" placeholder="Job Address" /> */}
+                </div>
+                <div className="col-md-3 job-filter-col">
+                  <select defaultValue="" {...register("category")}>
+                    {categories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="col-md-3 job-filter-col">
+                  <button className="btn btn-primary" type="submit">
+                    Find Job
+                  </button>
+                </div>
               </div>
-              <div className="col-md-3 job-filter-col">
-                <input type="text" placeholder="Job Address" />
-              </div>
-              <div className="col-md-3 job-filter-col">
-                <select defaultValue="" name="job-category">
-                  {categories.map((category => (
-                    <option key={category.id} value={category.id}>{category.name}</option>
-                  )))}
-                </select>
-              </div>
-              <div className="col-md-3 job-filter-col">
-                <button className="btn btn-primary" type="submit">
-                  Find Job
-                </button>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

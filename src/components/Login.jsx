@@ -21,7 +21,6 @@ const Login = () => {
 
   const setToken = (token, userId) => {
     localStorage.setItem("access_token", token);
-    localStorage.setItem("is_logged_in", true);
     localStorage.setItem("userId", userId);
   };
 
@@ -46,7 +45,7 @@ const Login = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((response) => {
-        setToken(response.data.data.access, response.data.data.user.id);
+        setToken(response.data.data.access, response.data.data.user.uuid);
         if (
           response.data.data.user.verified_email &&
           response.data.data.user.user_type === "Candidate"
