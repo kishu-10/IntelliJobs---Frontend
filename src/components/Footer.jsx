@@ -65,30 +65,27 @@ const Footer = () => {
                 <li>
                   <a href="#/">Terms & Conditions</a>
                 </li>
+              </ul>
+            </div>
+            <div className="col-lg-2 col-md-4 col-6">
+              <ul className="list footer--links">
+                <li className="list-head">Other Services</li>
+                <li>
+                  <a href="#/">Contact Us</a>
+                </li>
                 <li>
                   <a href="#/">FAQ</a>
                 </li>
               </ul>
             </div>
-            <div className="col-lg-2 col-md-4 col-6">
-              <ul className="list footer--links">
-                <li className="list-head">Our Services</li>
-                <li>
-                  <a href="#/">Shipping Policy</a>
-                </li>
-                <li>
-                  <a href="#/">Contact Us</a>
-                </li>
-              </ul>
-            </div>
             <div className="col-lg-3 col-md-4 col-6">
               <ul className="list footer--links">
-                <li className="list-head">Contact Us</li>
-                <li>
-                  <a href="#/">9861233954</a>
-                </li>
+                <li className="list-head">Contact Numbers</li>
                 <li>
                   <a href="#/">mhrznkishu.10@gmail.com</a>
+                </li>
+                <li>
+                  <a href="#/">9861233954</a>
                 </li>
               </ul>
             </div>

@@ -255,7 +255,7 @@ html[theme="dark"] {
   --light-gray-border: #fff;
   --primary: #3db4f2;
   --btn-primary-hover: #3db4f2;
-  --box-shadow: #0a0a0a; 
+  --box-shadow: #0a0a0a;
 }
 
 *,
@@ -14245,7 +14245,7 @@ body.auth {
 
 .network-people-card {
   padding: 1rem;
-  margin: 2rem;
+  margin:0rem 2rem 3rem 2rem;
   height: auto;
   align-items: center;
   box-shadow: 2px 2px 5px 3px var(--box-shadow);
@@ -14291,9 +14291,8 @@ body.auth {
   background-color: var(--job-detail-section);
 }
 
-.job-detail-container{
+.job-detail-container {
   background-color: var(--job-detail-section);
-
 }
 
 .job-title-div {
@@ -14484,26 +14483,30 @@ select:focus {
   color: var(--primary);
   font-size: 16px;
   padding-left: 1rem;
+  font-family: "Rubik", sans-serif;
 }
 
+.mantine-Accordion-contentInner {
+  font-family: "Rubik", sans-serif;
+}
 
-.mantine-Accordion-item .mantine-Accordion-control:hover{
+.mantine-Accordion-item .mantine-Accordion-control:hover {
   color: var(--dark) !important;
   background-color: transparent;
 }
 
-.mantine-Accordion-item svg{
+.mantine-Accordion-item svg {
   color: var(--dark);
 }
 
-.education-card label{
+.education-card label {
   color: var(--dark);
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-.education-card input{
+.education-card input {
   color: var(--dark);
   font-size: 13px;
 }

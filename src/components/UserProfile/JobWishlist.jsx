@@ -32,9 +32,9 @@ const JobWishlist = () => {
       <div className="row">
         <div className="col-lg-12">
           <div className="grid grid-list">
-            {jobs.map((job) => (
+            {jobs?jobs.map((job) => (
               <Job key={job.id} job={job} />
-            ))}
+            )):""}
           </div>
         </div>
       </div>

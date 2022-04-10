@@ -8,6 +8,20 @@ import "./css/1.style.css";
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./features/users";
 import { Provider } from "react-redux";
+import axios from "axios";
+
+axios.interceptors.request.use(
+  async config => {
+    const token = localStorage.getItem("access_token");
+    config.headers = { 
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+    }
+    return config;
+  },
+  error => {
+    Promise.reject(error)
+});
 
 const store = configureStore({
   reducer: {

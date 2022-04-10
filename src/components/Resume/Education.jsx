@@ -1,14 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { Accordion } from "@mantine/core";
 import { Icon } from "@iconify/react";
+import { useForm, useFieldArray } from "react-hook-form";
 
+function ErrorMessage(){
+  return <p className="error">This field is required</p>
+}
 const Education = () => {
+  const [education, setEducation] = useState([]);
+  const { control, register, handleSubmit, formState:{errors}} = useForm({
+    defaultValues: {
+      educations: [
+        {
+          name: "unhijm",
+        },
+      ],
+    },
+  });
+  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
+    {
+      control, // control props comes from useForm (optional: if you are using FormContext)
+      name: "educations", // unique name for your Field Array
+      keyName: "key",
+    }
+  );
+
+  const onSubmit = data => console.log(data);
+
   return (
     <div className="section--profile">
       <button
         className="btn btn-sm btn-primary"
         to=""
         style={{ float: "right" }}
+        onClick={() => {
+          append({});
+        }}
       >
         <Icon
           icon="fluent:add-12-filled"
@@ -32,107 +59,113 @@ const Education = () => {
       </p>
       <div className="row">
         <div className="col-lg">
-          <Accordion iconPosition="right" initialItem={-1}>
-            <Accordion.Item label="Education">
-              <div className="container education-card">
-                <div className="form-row form-group">
-                  <div className="col-md-4">
-                    <label>University</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="first_name"
-                    />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Accordion iconPosition="right" initialItem={-1}>
+              {fields.map((field, i) => (
+                <Accordion.Item label="Education" key={field.key}>
+                  <div className="container education-card" key={field.key}>
+                    <div className="form-row form-group">
+                      <div className="col-md-4">
+                        <label>University</label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          {...register(`educations.${i}.university`, {
+                            required: true,
+                          })}
+                        />
+                        {errors.educations?.[i]?.university && <ErrorMessage />}
+                      </div>
+                      <div className="col-md-4">
+                        <label>Address</label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          {...register(`educations.${i}.address`, {
+                            required: true,
+                          })}
+                        />
+                        {errors.educations?.[i]?.address && <ErrorMessage />}
+                      </div>
+                      <div className="col-md-4">
+                        <label>Degree</label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          {...register(`educations.${i}.degree`, {
+                            required: true,
+                          })}
+                        />
+                        {errors.educations?.[i]?.degree && <ErrorMessage />}
+                      </div>
+                    </div>
+                    <div className="form-row form-group">
+                      <div className="col-md-4">
+                        <label>Field of Study</label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          {...register(`educations.${i}.subject`, {
+                            required: true,
+                          })}
+                        />
+                        {errors.educations?.[i]?.subject && <ErrorMessage />}
+                      </div>
+                      <div className="col-md-4">
+                        <label>Start Date</label>
+                        <input
+                          className="form-control"
+                          type="date"
+                          {...register(`educations.${i}.start_date`, {
+                            required: true,
+                          })}
+                        />
+                        {errors.educations?.[i]?.start_date && <ErrorMessage />}
+                      </div>
+                      <div className="col-md-4">
+                        <label>End Date</label>
+                        <input
+                          className="form-control"
+                          type="date"
+                          {...register(`educations.${i}.end_date`)}
+                        />
+                        {errors.educations?.[i]?.end_date && <ErrorMessage />}
+                      </div>
+                    </div>
+                    <div className="form-row form-group">
+                      <div className="col-lg">
+                        <label>Description</label>
+                        <textarea
+                          className="form-control"
+                          {...register(`educations.${i}.description`, {
+                            required: true,
+                          })}
+                        />
+                        {errors.educations?.[i]?.description && <ErrorMessage />}
+                      </div>
+                    </div>
+                    <div className="form-row mt-4 ml-5">
+                      <div className="col-md-9 offset-md-11">
+                        <button
+                          className="btn btn-sm font-14 ml-4 btn-danger"
+                          onClick={() => {
+                            remove(i);
+                          }}
+                        >
+                          <Icon icon="fluent:delete-24-filled" color="white" />
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="col-md-4">
-                    <label>Address</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="first_name"
-                    />
-                  </div>
-                  <div className="col-md-4">
-                    <label>Degree</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="first_name"
-                    />
-                  </div>
-                </div>
-                <div className="form-row form-group">
-                  <div className="col-md-4">
-                    <label>Field of Study</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="first_name"
-                    />
-                  </div>
-                  <div className="col-md-4">
-                    <label>Start Date</label>
-                    <input
-                      className="form-control"
-                      type="date"
-                      name="first_name"
-                    />
-                  </div>
-                  <div className="col-md-4">
-                    <label>End Date</label>
-                    <input
-                      className="form-control"
-                      type="date"
-                      name="first_name"
-                    />
-                  </div>
-                </div>
-                <div className="form-row form-group">
-                  <div className="col-lg">
-                    <label>Description</label>
-                    <textarea
-                      name="description"
-                      className="form-control"
-                      rows="4"
-                    ></textarea>
-                  </div>
-                </div>
-                <div className="form-row mt-4 ml-5">
-                  <div className="col-md-9 offset-md-11">
-                    <button className="btn btn-sm font-14 ml-4 btn-danger">
-                      <Icon icon="fluent:delete-24-filled" color="white" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </Accordion.Item>
-          </Accordion>
-          {/* <Accordion iconPosition="right" multiple initialItem={0}>
-                
-                    <Accordion.Item
-                        key={field.key}
-                        icon={
-                            <AccordionMenu>
-                                <Menu.Item
-                                    onClick={() => removeItem(i, field.id)}
-                                    icon={<MdDelete />}
-                                >
-                                    Delete
-                                </Menu.Item>
-                            </AccordionMenu>
-                        }
-                        label={
-                            <EducationAccordionLabel i={i} control={control} />
-                        }
-                    >
-                        
-                    </Accordion.Item>
-            </Accordion> */}
-          <div class="col-md-9 offset-md-11 pl-2">
-            <button type="submit" class="btn btn-primary">
-              Submit
-            </button>
-          </div>
+                </Accordion.Item>
+              ))}
+            </Accordion>
+            <div className="col-md-9 offset-md-11 pl-2">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
