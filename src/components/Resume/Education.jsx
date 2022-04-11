@@ -49,7 +49,7 @@ const Education = () => {
       method: "post",
       url: "http://127.0.0.1:8000/api/cv-builder/education/",
       data: data,
-      headers: { "Content-Type": "multipart/form-data" },
+      headers: { "Content-Type": "application/json" },
     })
       .then((response) => {
         fetchEducations();
@@ -61,11 +61,10 @@ const Education = () => {
   };
 
   const deleteEducation = (eduId) => {
-    console.log(eduId);
     axios({
       method: "delete",
-      url: `http://127.0.0.1:8000/api/cv-builder/education/${eduId}`,
-      headers: { "Content-Type": "multipart/form-data" },
+      url: `http://127.0.0.1:8000/api/cv-builder/education/${eduId}/`,
+      headers: { "Content-Type": "application/json" },
     })
       .then((response) => {
         showSuccess("Education deleted successfully.");
