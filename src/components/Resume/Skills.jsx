@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Accordion } from "@mantine/core";
 import { Icon } from "@iconify/react";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -25,24 +25,24 @@ const Skills = () => {
     name: "skills",
     keyName: "key",
   });
-  useEffect(() => {
-    const fetchSkills = async () => {
-      try {
-        const result = await axios.get(
-          `http://127.0.0.1:8000/api/cv-builder/skills/`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        replace(result.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchSkills();
+  const fetchSkills = useCallback(async () => {
+    try {
+      const result = await axios.get(
+        `http://127.0.0.1:8000/api/cv-builder/skills/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      replace(result.data.data);
+    } catch (error) {
+      console.log(error);
+    }
   }, [replace]);
+  useEffect(() => {
+    fetchSkills();
+  }, [fetchSkills]);
 
   const onSubmit = (data) => {
     axios({
@@ -52,7 +52,21 @@ const Skills = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((response) => {
+        fetchSkills();
         showSuccess("Skill added successfully.");
+      })
+      .catch((error) => {
+        showError("Error");
+      });
+  };
+  const deleteSkill = (skillId) => {
+    axios({
+      method: "delete",
+      url: `http://127.0.0.1:8000/api/cv-builder/skills/${skillId}`,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then((response) => {
+        showSuccess("Skill deleted successfully.");
       })
       .catch((error) => {
         showError("Error");
@@ -117,6 +131,7 @@ const Skills = () => {
                           className="btn btn-sm font-14 ml-4 btn-danger"
                           onClick={() => {
                             remove(index);
+                            deleteSkill(field.id);
                           }}
                         >
                           <Icon icon="fluent:delete-24-filled" color="white" />

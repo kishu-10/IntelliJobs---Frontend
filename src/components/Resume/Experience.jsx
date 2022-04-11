@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Accordion } from "@mantine/core";
 import { Icon } from "@iconify/react";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -25,24 +25,26 @@ const Experience = () => {
     name: "experiences",
     keyName: "key",
   });
-  useEffect(() => {
-    const fetchExperiences = async () => {
-      try {
-        const result = await axios.get(
-          `http://127.0.0.1:8000/api/cv-builder/experience/`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        replace(result.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchExperiences();
+
+  const fetchExperiences = useCallback(async () => {
+    try {
+      const result = await axios.get(
+        `http://127.0.0.1:8000/api/cv-builder/experience/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      replace(result.data.data);
+    } catch (error) {
+      console.log(error);
+    }
   }, [replace]);
+
+  useEffect(() => {
+    fetchExperiences();
+  }, [fetchExperiences]);
 
   const onSubmit = (data) => {
     axios({
@@ -52,7 +54,22 @@ const Experience = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((response) => {
+        fetchExperiences();
         showSuccess("Experience added successfully.");
+      })
+      .catch((error) => {
+        showError("Error");
+      });
+  };
+
+  const deleteExperience = (expId) => {
+    axios({
+      method: "delete",
+      url: `http://127.0.0.1:8000/api/cv-builder/experience/${expId}`,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then((response) => {
+        showSuccess("Experience deleted successfully.");
       })
       .catch((error) => {
         showError("Error");
@@ -187,6 +204,7 @@ const Experience = () => {
                           className="btn btn-sm font-14 ml-4 btn-danger"
                           onClick={() => {
                             remove(index);
+                            deleteExperience(field.id);
                           }}
                         >
                           <Icon icon="fluent:delete-24-filled" color="white" />
