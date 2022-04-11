@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { Accordion } from "@mantine/core";
 import { Icon } from "@iconify/react";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -24,24 +24,25 @@ const Education = () => {
     name: "educations",
     keyName: "key",
   });
-  useEffect(() => {
-    const fetchEducations = async () => {
-      try {
-        const result = await axios.get(
-          `http://127.0.0.1:8000/api/cv-builder/education/`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        replace(result.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchEducations();
+
+  const fetchEducations = useCallback(async () => {
+    try {
+      const result = await axios.get(
+        `http://127.0.0.1:8000/api/cv-builder/education/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      replace(result.data.data);
+    } catch (error) {
+      console.log(error);
+    }
   }, [replace]);
+  useEffect(() => {
+    fetchEducations();
+  }, [fetchEducations]);
 
   const onSubmit = (data) => {
     axios({
@@ -51,7 +52,23 @@ const Education = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((response) => {
+        fetchEducations();
         showSuccess("Education added successfully.");
+      })
+      .catch((error) => {
+        showError("Error");
+      });
+  };
+
+  const deleteEducation = (eduId) => {
+    console.log(eduId);
+    axios({
+      method: "delete",
+      url: `http://127.0.0.1:8000/api/cv-builder/education/${eduId}`,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then((response) => {
+        showSuccess("Education deleted successfully.");
       })
       .catch((error) => {
         showError("Error");
@@ -189,6 +206,7 @@ const Education = () => {
                           className="btn btn-sm font-14 ml-4 btn-danger"
                           onClick={() => {
                             remove(i);
+                            deleteEducation(field.id);
                           }}
                         >
                           <Icon icon="fluent:delete-24-filled" color="white" />

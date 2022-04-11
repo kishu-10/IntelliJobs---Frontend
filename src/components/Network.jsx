@@ -4,38 +4,56 @@ import Navbar from "./Navbar";
 import avatar from "../assets/avatar.png";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { showError, showSuccess } from "../utils/toast";
 
 const Network = () => {
   const [networks, setNetworks] = useState([]);
+  async function fetchNetworks() {
+    try {
+      const result = await axios.get(
+        `http://127.0.0.1:8000/api/feeds/networks/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setNetworks(result.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   useEffect(() => {
-    const fetchNetworks = async () => {
-      try {
-        const result = await axios.get(
-          `http://127.0.0.1:8000/api/feeds/networks/`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        setNetworks(result.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     fetchNetworks();
   }, []);
-  console.log(networks);
+  const handleSubmit = (data) => {
+    const jsonData = { being_followed: data };
+    axios({
+      method: "post",
+      url: "http://127.0.0.1:8000/api/feeds/networks/add/",
+      data: jsonData,
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => {
+        showSuccess(response.data.data.message);
+        fetchNetworks();
+      })
+      .catch((error) => {
+        showError("Error");
+      });
+  };
 
   return (
     <>
       <Navbar />
       <div className="row--grey">
         <div className="container col-lg-8">
-          <h1 className="text-primary text-center mt-2 mb-4 pt-3">Expand Your Networks</h1>
+          <h1 className="text-primary text-center mt-2 mb-4 pt-3">
+            Expand Your Networks
+          </h1>
           <div className="row network-people-row">
-            {networks.map((network) => (
-              <div className="card network-people-card col-sm-3">
+            {networks.map((network, index) => (
+              <div className="card network-people-card col-sm-3" key={index}>
                 <div className="org-pic">
                   <img
                     src={
@@ -51,8 +69,11 @@ const Network = () => {
                       <p className="font-weight-bold mb-1">{network.name}</p>
                     </li>
                   </ul>
-                  <button className="btn btn-primary connect-people-btn">
-                    Connect
+                  <button
+                    className="btn btn-primary connect-people-btn"
+                    onClick={() => handleSubmit(network.id)}
+                  >
+                    {network.has_followed ? "Unconnect" : "Connect"}
                   </button>
                 </div>
               </div>
