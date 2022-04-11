@@ -47,13 +47,13 @@ const Network = () => {
     <>
       <Navbar />
       <div className="row--grey">
-        <div className="container col-lg-8">
+        <div className="container mb-2">
           <h1 className="text-primary text-center mt-2 mb-4 pt-3">
             Expand Your Networks
           </h1>
           <div className="row network-people-row">
             {networks.map((network, index) => (
-              <div className="card network-people-card col-sm-3" key={index}>
+              <div className="card network-people-card col-md-2" key={index}>
                 <div className="org-pic">
                   <img
                     src={

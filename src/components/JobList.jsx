@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import image from "../assets/post-image.png";
+import image from "../assets/job-list.jpg";
 import axios from "axios";
 import Job from "./Job";
 import { useForm } from "react-hook-form";

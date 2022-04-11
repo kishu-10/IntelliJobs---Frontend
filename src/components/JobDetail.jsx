@@ -2,30 +2,51 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { Icon } from "@iconify/react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
+import { showError, showSuccess } from "../utils/toast";
 
 const JobDetail = () => {
   const { jobId } = useParams();
   const [job, setJob] = useState(null);
-  useEffect(() => {
-    const fetchJob = async () => {
-      try {
-        const result = await axios.get(
-          `http://127.0.0.1:8000/api/jobs/detail/${jobId}/`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        setJob(result.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchJob();
+
+  const fetchJob = useCallback(async () => {
+    try {
+      const result = await axios.get(
+        `http://127.0.0.1:8000/api/jobs/detail/${jobId}/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setJob(result.data.data);
+    } catch (error) {
+      console.log(error);
+    }
   }, [jobId]);
+
+  useEffect(() => {
+    fetchJob();
+  }, [fetchJob]);
+
+  const addToWishlist = () => {
+    const formData = new FormData();
+    formData.append("job", jobId);
+    axios({
+      method: "post",
+      url: "http://127.0.0.1:8000/api/jobs/wishlist/add/",
+      data: formData,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then((response) => {
+        fetchJob();
+        showSuccess(response.data.data.message);
+      })
+      .catch((error) => {
+        showError("Error");
+      });
+  };
 
   if (job) {
     return (
@@ -38,13 +59,9 @@ const JobDetail = () => {
               <div className="job-title-div">
                 <div className="job-title-desc">
                   <h1>{job.title}</h1>
-                  <h3>{job.organization}</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Modi fuga inventore vitae, ab aliquam voluptate veritatis
-                    aspernatur voluptas ex praesentium, ducimus consequatur
-                    provident quaerat quibusdam repudiandae ea harum nostrum
-                    atque.
+                  <h3 className="mt-3">{job.organization}</h3>
+                  <p className="text-justify">
+                   {job.org_description}
                   </p>
                 </div>
               </div>
@@ -97,10 +114,17 @@ const JobDetail = () => {
               </div>
               <div className="col-lg-2 ml-5">
                 <div className="job-detail-actions">
-                  <Icon icon="bi:bookmark-check" />
-                  <button className="btn btn-primary ml-3" type="submit">
-                    Apply Now
-                  </button>
+                  <Icon
+                    icon={`${
+                      job.is_wishlist
+                        ? "fa-solid:bookmark"
+                        : "fa-regular:bookmark"
+                    }`}
+                    className="ml-3 mr-2"
+                    style={{ cursor: "pointer", color: "var(--primary)" }}
+                    onClick={() => addToWishlist()}
+                  />
+                  <button className="btn btn-primary ml-4">Apply Now</button>
                 </div>
               </div>
             </div>
@@ -118,19 +142,25 @@ const JobDetail = () => {
               </div>
               <div className="job-detail-desc">
                 <h2>Job Description</h2>
-                <div dangerouslySetInnerHTML={{__html:job.description}}></div>
+                <div
+                  dangerouslySetInnerHTML={{ __html: job.description }}
+                ></div>
               </div>
               <div className="job-detail-desc">
                 <h2>Required Skills</h2>
-                <div dangerouslySetInnerHTML={{__html:job.skills}}></div>
+                <div dangerouslySetInnerHTML={{ __html: job.skills }}></div>
               </div>
               <div className="job-detail-desc">
                 <h2>Other Specifications</h2>
-                <div dangerouslySetInnerHTML={{__html:job.other_specification}}></div>
+                <div
+                  dangerouslySetInnerHTML={{ __html: job.other_specification }}
+                ></div>
               </div>
               <div className="job-detail-desc">
                 <h2>Career Benefits</h2>
-                <div dangerouslySetInnerHTML={{__html:job.career_benefits}}></div>
+                <div
+                  dangerouslySetInnerHTML={{ __html: job.career_benefits }}
+                ></div>
               </div>
             </div>
           </div>
