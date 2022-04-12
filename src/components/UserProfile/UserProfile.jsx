@@ -7,6 +7,7 @@ import EditUserProfile from "./EditUserProfile";
 import EditAddress from "./EditAddress";
 import UserCV from "./UserCV";
 import JobWishlist from "./JobWishlist";
+import AppliedJobs from "./AppliedJobs";
 
 const UserProfile = () => {
   const [element, setElement] = useState(null);
@@ -26,6 +27,8 @@ const UserProfile = () => {
     renderElement = <UserCV />;
   } else if (element === "jobWishlist") {
     renderElement = <JobWishlist />;
+  } else if (element === "appliedJobs") {
+    renderElement = <AppliedJobs />;
   }
 
   return (
@@ -89,6 +92,17 @@ const UserProfile = () => {
                     to=""
                   >
                     Saved Jobs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={`sidebar-link ${
+                      element === "appliedJobs" ? "active" : ""
+                    }`}
+                    onClick={() => setElement("appliedJobs")}
+                    to=""
+                  >
+                    Applied Jobs
                   </Link>
                 </li>
               </ul>
