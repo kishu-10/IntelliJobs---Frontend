@@ -214,6 +214,7 @@
   --job-detail-section: #fff;
   --job-detail-card: #e0e0e0;
   --gray: #4d4d4d;
+  --custom-gray: #c2c2c2;
   --gray-light: #666;
   --gray-dark: #1a1a1a;
   --primary: #0d4bc3;
@@ -254,6 +255,7 @@ html[theme="dark"] {
   --gray-dark: #fff;
   --light-gray-border: #fff;
   --primary: #3db4f2;
+  --custom-gray: #0f1724;
   --btn-primary-hover: #3db4f2;
   --box-shadow: #0a0a0a;
 }
@@ -2169,7 +2171,7 @@ pre code {
 
 .table .thead-light th {
   color: #333;
-  background-color: #c2c2c2;
+  background-color: var(--custom-gray);
   border-color: var(--light);
 }
 
@@ -3721,7 +3723,7 @@ input[type="button"].btn-block {
   height: 0;
   margin: 0.5rem 0;
   overflow: hidden;
-  border-top: 1px solid #c2c2c2;
+  border-top: 1px solid var(--custom-gray);
 }
 
 .dropdown-item {
@@ -4017,7 +4019,7 @@ input[type="button"].btn-block {
   color: var(--dark);
   text-align: center;
   white-space: nowrap;
-  background-color: #c2c2c2;
+  background-color: var(--custom-gray);
   border: 1px solid var(--gray-border);
   border-radius: 0;
 }
@@ -4297,7 +4299,7 @@ input[type="button"].btn-block {
 
 .custom-select:disabled {
   color: var(--gray);
-  background-color: #c2c2c2;
+  background-color: var(--custom-gray);
 }
 
 .custom-select::-ms-expand {
@@ -4373,7 +4375,7 @@ input[type="button"].btn-block {
   color: var(--dark);
   background-color: var(--white);
   border: 1px solid var(--gray-border);
-  border-radius: 0;
+  border-radius: 5px;
 }
 
 .custom-file-label::after {
@@ -4388,9 +4390,9 @@ input[type="button"].btn-block {
   line-height: 1.5;
   color: var(--dark);
   content: "Browse";
-  background-color: #c2c2c2;
+  background-color: var(--custom-gray);
   border-left: inherit;
-  border-radius: 0 0 0 0;
+  border-radius: 5px;
 }
 
 .custom-range {
@@ -4604,7 +4606,7 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
-  border-color: #c2c2c2 #c2c2c2 var(--gray-border);
+  border-color: var(--custom-gray) var(--custom-gray) var(--gray-border);
 }
 
 .nav-tabs .nav-link.disabled {
@@ -10302,7 +10304,7 @@ body.toggled .navbar-collapse {
 }
 
 .text-gray-200 {
-  color: #c2c2c2;
+  color: var(--custom-gray);
 }
 
 .text-gray-300 {
@@ -10472,7 +10474,7 @@ body.toggled .navbar-collapse {
 }
 
 .btn-group > *.slick-disabled {
-  color: #c2c2c2;
+  color: var(--custom-gray);
 }
 
 .btn-group > *.slick-disabled:hover {
@@ -10671,7 +10673,7 @@ hr {
 }
 
 .link--footer a:not(:last-child) {
-  border-right: 1px solid #c2c2c2;
+  border-right: 1px solid var(--custom-gray);
   padding-right: 0.5rem;
 }
 
@@ -10857,7 +10859,7 @@ p {
 }
 
 .card--options {
-  border: 1px solid #c2c2c2;
+  border: 1px solid var(--custom-gray);
   transition: 0.25s border-color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -10867,7 +10869,7 @@ p {
 
 .card--options .card-heading {
   padding-bottom: 1rem;
-  border-bottom: 1px solid #c2c2c2;
+  border-bottom: 1px solid var(--custom-gray);
 }
 
 .card--options .card-list {
@@ -10967,7 +10969,7 @@ p {
 }
 
 .card-dashed {
-  border: 1px dashed #c2c2c2;
+  border: 1px dashed var(--custom-gray);
 }
 
 .card--add {
@@ -11463,7 +11465,7 @@ label {
 .files--upload {
   position: relative;
   height: 100%;
-  border: 1px dashed #c2c2c2;
+  border: 1px dashed var(--custom-gray);
   border-radius: 6px;
   padding: 0.5rem;
   transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -11966,7 +11968,7 @@ label {
 }
 
 .list--card li {
-  border: 1px solid #c2c2c2;
+  border: 1px solid var(--custom-gray);
   border-radius: 0;
   padding: 0.5rem;
 }
@@ -13253,7 +13255,7 @@ a.hasSub + .subMenu-collapse {
 }
 
 .section--flashsale .btn-group > * {
-  color: #c2c2c2;
+  color: var(--custom-gray);
 }
 
 .section--flashsale .btn-group > *:hover:not(.slick-disabled) {
