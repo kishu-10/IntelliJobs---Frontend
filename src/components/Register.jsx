@@ -50,7 +50,7 @@ const Register = () => {
       method: "post",
       url: "http://127.0.0.1:8000/api/users/register/",
       data: jsonData,
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", 'Authorization': null },
     })
       .then((response) => {
         showSuccess("Registered Successfully.");

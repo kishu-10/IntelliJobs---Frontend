@@ -33,7 +33,7 @@ const HomePost = () => {
               <div className="col-lg-2">
                 <img
                   src={post.display_picture ? post.display_picture : avatar}
-                  height="70"
+                  height="80"
                   alt=""
                 />
               </div>

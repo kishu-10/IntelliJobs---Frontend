@@ -18,6 +18,7 @@ const Network = () => {
           },
         }
       );
+      console.log(result.data.data)
       setNetworks(result.data.data);
     } catch (error) {
       console.log(error);
@@ -66,7 +67,8 @@ const Network = () => {
                 <div>
                   <ul className="list font-14 mt-2">
                     <li>
-                      <p className="font-weight-bold mb-1">{network.name}</p>
+                      <p className="font-weight-bold mb-2">{network.name}</p>
+                      <p className="text-muted">{network.user_type}</p>
                     </li>
                   </ul>
                   <button

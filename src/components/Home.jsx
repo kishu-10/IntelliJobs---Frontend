@@ -150,7 +150,7 @@ const Home = () => {
             >
               <img
                 src={userStore.picture ? userStore.picture : avatar}
-                height="80"
+                height="100"
                 alt=""
               />
               <ul className="list footer--links mt-3 mb-3">

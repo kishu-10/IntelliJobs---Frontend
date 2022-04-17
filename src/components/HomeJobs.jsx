@@ -34,20 +34,18 @@ const HomeJobs = () => {
               <Link to={`/job/${job.id}`}>
                 <div className="row feeds-job-row">
                   <div className="col-lg-3">
-                    <div className="org-pic">
                       <img
                         src={
                           job.organization_picture
                             ? job.organization_picture
                             : avatar
                         }
-                        height="80"
+                        height="90"
                         alt=""
                       />
-                    </div>
                   </div>
                   <div className="col-lg-8 feeds-job-desc">
-                    <p className="font-weight-bold">{job.title}</p>
+                    <p className="font-weight-bold text-truncate">{job.title}</p>
                     <p>{job.organization}</p>
                     <p>{job.date_created}</p>
                   </div>
