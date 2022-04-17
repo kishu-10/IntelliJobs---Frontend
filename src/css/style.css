@@ -14123,7 +14123,7 @@ body.auth {
 }
 
 .feeds-job-desc {
-  padding-left: 1.5rem;
+  padding-left: 1.8rem;
 }
 
 .feeds-post-image {
@@ -14181,8 +14181,8 @@ body.auth {
 }
 
 .jobs-desc-col {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 2.5rem;
+  margin-right: 1rem;
   font-weight: 500;
 }
 
@@ -14243,11 +14243,11 @@ body.auth {
   background-color: var(--white);
   text-align: center;
   border-radius: 5px;
-  padding-left: 2.3rem;
+  padding-left: 6.5rem;
 }
 
 .network-people-card {
-  padding: 1rem;
+  padding: 1rem 3rem 1rem 3rem;
   margin: 0rem 2rem 3rem 2rem;
   height: auto;
   align-items: center;
@@ -14417,16 +14417,35 @@ select:focus {
 
 .org-pic img {
   border-radius: 50%;
+  width: 6.5rem;
+  object-fit: cover;
 }
 
 .feeds-profile-pic img {
   border-radius: 50%;
+  width: 6rem;
+  object-fit: cover;
   margin-top: 1rem;
 }
 
 .post-author-row img {
   border-radius: 50%;
   margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 5rem;
+  object-fit: cover;
+}
+
+.feeds-job-row img{
+  border-radius: 50%;
+  width: 5.5rem;
+  object-fit: cover;
+}
+
+.jobs-list-row img {
+  border-radius: 50%;
+  width: 6.2rem;
+  object-fit: cover;
 }
 
 .resume-sidebar {

@@ -7,9 +7,7 @@ const Job = ({ job }) => {
   return (
     <Link className="d-flex jobs-list-row" to={`/job/${job.id}`}>
       <div className="col-lg-1">
-        <div className="navbar-brand org-pic">
-          <img src={job.organization_picture?job.organization_picture:avatar} height="90" alt="" />
-        </div>
+          <img src={job.organization_picture?job.organization_picture:avatar} height="100" alt="" />
       </div>
       <div className="col-md-8 jobs-desc-col">
         <p className="font-weight-bold text-info font-16">{job.title}</p>

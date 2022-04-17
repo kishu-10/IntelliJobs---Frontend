@@ -18,17 +18,15 @@ const Jobs = (job) => {
   return (
     <Link className="d-flex jobs-list-row" to={`/job/${job.job.job.id}`}>
       <div className="col-lg-1">
-        <div className="navbar-brand org-pic">
           <img
             src={
               job.job.job.organization_picture
                 ? job.job.job.organization_picture
                 : avatar
             }
-            height="90"
+            height="100"
             alt=""
           />
-        </div>
       </div>
       <div className="col-md-8 jobs-desc-col">
         <p className="font-weight-bold text-info font-16">
