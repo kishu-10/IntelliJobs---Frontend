@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "../logo-lg.png";
-import avatar from "../assets/avatar.png";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
+
 const Landing = () => {
   return (
     <>
@@ -23,13 +24,17 @@ const Landing = () => {
           </div>
           <div className="row text-center ml-1">
             <div className="card landing-page-card col-sm">
-              <div>
-                <img src={avatar} height="80" alt="" />
+              <div className="mt-2">
+                <Icon
+                  icon="ph:users-three"
+                  fontSize={"4rem"}
+                  color={"var(--primary)"}
+                />
               </div>
               <div>
                 <ul className="list font-14 mt-2">
                   <li>
-                    <p className="font-weight-bold">Lorem Ipsum</p>
+                    <p className="font-weight-bold font-16 mb-2">About Us</p>
                   </li>
                   <li>
                     <p>
@@ -41,13 +46,17 @@ const Landing = () => {
               </div>
             </div>
             <div className="card landing-page-card col-sm">
-              <div>
-                <img src={avatar} height="80" alt="" />
+              <div className="mt-2">
+                <Icon
+                  icon="ph:user-circle-plus-duotone"
+                  fontSize={"4rem"}
+                  color={"var(--primary)"}
+                />
               </div>
               <div>
                 <ul className="list font-14 mt-2">
                   <li>
-                    <p className="font-weight-bold">Lorem Ipsum</p>
+                    <p className="font-weight-bold font-16 mb-2">Contact Us</p>
                   </li>
                   <li>
                     <p>
@@ -59,13 +68,17 @@ const Landing = () => {
               </div>
             </div>
             <div className="card landing-page-card col-sm">
-              <div>
-                <img src={avatar} height="80" alt="" />
+              <div className="mt-2">
+                <Icon
+                  icon="bi:phone-vibrate"
+                  fontSize={"4rem"}
+                  color={"var(--primary)"}
+                />
               </div>
               <div>
                 <ul className="list font-14 mt-2">
                   <li>
-                    <p className="font-weight-bold">Lorem Ipsum</p>
+                    <p className="font-weight-bold font-16 mb-2">Contact Us</p>
                   </li>
                   <li>
                     <p>
@@ -76,6 +89,167 @@ const Landing = () => {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h1 className="landing-work-title">How It Works</h1>
+      </div>
+      <div className="row landing-work-row">
+        <div className="card landing-page-card col-sm-2">
+          <div className="mt-2">
+            <Icon
+              icon="ph:user-circle-plus-duotone"
+              fontSize={"4rem"}
+              color={"var(--primary)"}
+            />
+          </div>
+          <div>
+            <ul className="list font-14 mt-2">
+              <li>
+                <p className="font-weight-bold font-16 mb-2">Register</p>
+              </li>
+              <li>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Delectus doloribus, corporis expedita provident accusamus.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <Icon icon="entypo:arrow-long-right" className="landing-work-arrow" />
+        <div className="card landing-page-card col-sm-2">
+          <div className="mt-2">
+            <Icon
+              icon="icon-park-outline:search"
+              fontSize={"3.5rem"}
+              color={"var(--primary)"}
+            />
+          </div>
+          <div>
+            <ul className="list font-14 mt-2">
+              <li>
+                <p className="font-weight-bold font-16 mb-2">Search Jobs</p>
+              </li>
+              <li>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Delectus doloribus, corporis expedita provident accusamus.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <Icon icon="entypo:arrow-long-right" className="landing-work-arrow" />
+        <div className="card landing-page-card col-sm-2">
+          <div className="mt-2">
+            <Icon
+              icon="mdi:sticker-check-outline"
+              fontSize={"3.5rem"}
+              color={"var(--primary)"}
+            />
+          </div>
+          <div>
+            <ul className="list font-14 mt-2">
+              <li>
+                <p className="font-weight-bold font-16 mb-2">Apply</p>
+              </li>
+              <li>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Delectus doloribus, corporis expedita provident accusamus.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <Icon icon="entypo:arrow-long-right" className="landing-work-arrow" />
+        <div className="card landing-page-card col-sm-2">
+          <div className="mt-2">
+            <Icon
+              icon="ph:user-circle-gear-duotone"
+              fontSize={"4rem"}
+              color={"var(--primary)"}
+            />
+          </div>
+          <div>
+            <ul className="list font-14 mt-2">
+              <li>
+                <p className="font-weight-bold font-16 mb-2">Get Placed</p>
+              </li>
+              <li>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Delectus doloribus, corporis expedita provident accusamus.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h1 className="landing-stats-title">Our Work In Numbers</h1>
+      </div>
+      <div className="row landing-work-row pb-5">
+        <div className="col-lg-3 col-md-4 mb-lg-0 mb-3">
+          <div className="card card-stats cardbg-blue">
+            <div>
+              <div className="icon">
+                <Icon
+                  icon="ph:user-circle-plus-duotone"
+                  fontSize={"4rem"}
+                  color={"var(--white)"}
+                />
+              </div>
+              <p className="title">Total Vacancies</p>
+            </div>
+            <h1 className="value">30</h1>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-4 mb-lg-0 mb-3">
+          <div className="card card-stats cardbg-red">
+            <div>
+              <div className="icon">
+                <Icon
+                  icon="ph:user-circle-plus-duotone"
+                  fontSize={"4rem"}
+                  color={"var(--white)"}
+                />
+              </div>
+              <p className="title">Total Vacancies</p>
+            </div>
+            <h1 className="value">30</h1>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-4 mb-lg-0 mb-3">
+          <div className="card card-stats cardbg-green">
+            <div>
+              <div className="icon">
+                <Icon
+                  icon="ph:user-circle-plus-duotone"
+                  fontSize={"4rem"}
+                  color={"var(--white)"}
+                />
+              </div>
+              <p className="title">Total Vacancies</p>
+            </div>
+            <h1 className="value">30</h1>
+          </div>
+        </div>
+        <div className="col-lg-3 col-md-4 mb-lg-0 mb-3">
+          <div className="card card-stats cardbg-purple-20">
+            <div>
+              <div className="icon">
+                <Icon
+                  icon="ph:user-circle-plus-duotone"
+                  fontSize={"4rem"}
+                  color={"var(--white)"}
+                />
+              </div>
+              <p className="title">Total Vacancies</p>
+            </div>
+            <h1 className="value">30</h1>
           </div>
         </div>
       </div>
