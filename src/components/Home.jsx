@@ -38,6 +38,7 @@ const Home = () => {
     })
       .then((response) => {
         showSuccess("Post added successfully.");
+        setOpened(false);
       })
       .catch((error) => {
         showError("Error");
