@@ -48,7 +48,7 @@ const Landing = () => {
             <div className="card landing-page-card col-sm">
               <div className="mt-2">
                 <Icon
-                  icon="ph:user-circle-plus-duotone"
+                  icon="fluent:mail-open-person-24-regular"
                   fontSize={"4rem"}
                   color={"var(--primary)"}
                 />
@@ -70,7 +70,7 @@ const Landing = () => {
             <div className="card landing-page-card col-sm">
               <div className="mt-2">
                 <Icon
-                  icon="bi:phone-vibrate"
+                  icon="fluent:target-arrow-24-regular"
                   fontSize={"4rem"}
                   color={"var(--primary)"}
                 />
@@ -78,7 +78,7 @@ const Landing = () => {
               <div>
                 <ul className="list font-14 mt-2">
                   <li>
-                    <p className="font-weight-bold font-16 mb-2">Contact Us</p>
+                    <p className="font-weight-bold font-16 mb-2">Our Goal</p>
                   </li>
                   <li>
                     <p>
@@ -197,12 +197,12 @@ const Landing = () => {
             <div>
               <div className="icon">
                 <Icon
-                  icon="ph:user-circle-plus-duotone"
-                  fontSize={"4rem"}
-                  color={"var(--white)"}
+                  icon="ic:twotone-work-history"
+                  fontSize={"2.5rem"}
+                  color={"#fff"}
                 />
               </div>
-              <p className="title">Total Vacancies</p>
+              <p className="title">Job Vacancies</p>
             </div>
             <h1 className="value">30</h1>
           </div>
@@ -212,12 +212,12 @@ const Landing = () => {
             <div>
               <div className="icon">
                 <Icon
-                  icon="ph:user-circle-plus-duotone"
-                  fontSize={"4rem"}
-                  color={"var(--white)"}
+                  icon="ion:business"
+                  fontSize={"2rem"}
+                  color={"#fff"}
                 />
               </div>
-              <p className="title">Total Vacancies</p>
+              <p className="title">Organizations</p>
             </div>
             <h1 className="value">30</h1>
           </div>
@@ -227,12 +227,12 @@ const Landing = () => {
             <div>
               <div className="icon">
                 <Icon
-                  icon="ph:user-circle-plus-duotone"
-                  fontSize={"4rem"}
-                  color={"var(--white)"}
+                  icon="la:user-tie"
+                  fontSize={"2.8rem"}
+                  color={"#fff"}
                 />
               </div>
-              <p className="title">Total Vacancies</p>
+              <p className="title">Job Seekers</p>
             </div>
             <h1 className="value">30</h1>
           </div>
@@ -244,7 +244,7 @@ const Landing = () => {
                 <Icon
                   icon="ph:user-circle-plus-duotone"
                   fontSize={"4rem"}
-                  color={"var(--white)"}
+                  color={"#fff"}
                 />
               </div>
               <p className="title">Total Vacancies</p>
