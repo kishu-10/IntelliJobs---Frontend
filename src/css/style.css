@@ -14583,7 +14583,7 @@ select:focus {
   height: 100%;
   transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.04);
-  color: var(--white);
+  color: #fff;
   cursor: pointer;
 }
 
