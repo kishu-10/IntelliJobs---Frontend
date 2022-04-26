@@ -82,10 +82,10 @@ const Footer = () => {
               <ul className="list footer--links">
                 <li className="list-head">Contact Numbers</li>
                 <li>
-                  <a href="#/">mhrznkishu.10@gmail.com</a>
+                  <a href="#/">intellijobs@gmail.com</a>
                 </li>
                 <li>
-                  <a href="#/">9861233954</a>
+                  <a href="#/">01-5521365</a>
                 </li>
               </ul>
             </div>

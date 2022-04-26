@@ -5,6 +5,7 @@ import image from "../assets/job-list.jpg";
 import axios from "axios";
 import Job from "./Job";
 import { useForm } from "react-hook-form";
+import { Pagination } from "@mantine/core";
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
@@ -113,6 +114,9 @@ const JobList = () => {
               <Job key={job.id} job={job} />
             ))}
           </div>
+        <div className="job-pagination">
+          <Pagination total={10} />
+        </div>
         </div>
       </div>
       <Footer />
