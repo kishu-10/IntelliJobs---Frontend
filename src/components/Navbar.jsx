@@ -34,6 +34,7 @@ const Navbar = () => {
           }
         );
         dispatch(login(result.data.data));
+        console.log(result.data.data)
       } catch (error) {
         console.log(error);
       }
@@ -69,11 +70,16 @@ const Navbar = () => {
             </ul>
             <ul className="list list-inline">
               <li>
-                <div className="dropdown dropdown-profile">
+                <div className="dropdown dropdown-profile avatar">
+                {user.picture ? (
+                     <img src={user.picture} alt="Avatar" />
+                ) : (
                   <Icon
-                    icon="carbon:user-avatar"
+                    icon="carbon:user-avatar-filled-alt"
                     className="navbar-icon ml-2"
                   />
+                )}
+                  
                   <div className="dropdown-menu dropdown-menu-right dropdown-menu-profile">
                     <Link className="dropdown-item" to="/profile">
                       <p className="mb-1">{user.name}</p>

@@ -53,7 +53,7 @@ const Register = () => {
       headers: { "Content-Type": "application/json", 'Authorization': null },
     })
       .then((response) => {
-        showSuccess("Registered Successfully.");
+        showSuccess("A verification link has been sent to your email.");
       })
       .catch((error) => {
         let errorMessage;
