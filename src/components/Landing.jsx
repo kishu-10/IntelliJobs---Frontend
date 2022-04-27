@@ -38,8 +38,7 @@ const Landing = () => {
                   </li>
                   <li>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Delectus doloribus, corporis expedita provident accusamus.
+                      IntelliJobs is a Job Portal where you can find variety of job vacancies and build an excellent career
                     </p>
                   </li>
                 </ul>
@@ -60,8 +59,9 @@ const Landing = () => {
                   </li>
                   <li>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Delectus doloribus, corporis expedita provident accusamus.
+                      You can reach to us through our primary email address or phone number
+                      <br />
+                      <strong>intellijobs@gmail.com</strong> 
                     </p>
                   </li>
                 </ul>
@@ -82,8 +82,7 @@ const Landing = () => {
                   </li>
                   <li>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Delectus doloribus, corporis expedita provident accusamus.
+                      Our aim is to assist all of our users find a decent job help them build a wonderful career.
                     </p>
                   </li>
                 </ul>
@@ -111,8 +110,7 @@ const Landing = () => {
               </li>
               <li>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Delectus doloribus, corporis expedita provident accusamus.
+                 Register your personal and professional details.
                 </p>
               </li>
             </ul>
@@ -134,8 +132,7 @@ const Landing = () => {
               </li>
               <li>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Delectus doloribus, corporis expedita provident accusamus.
+                  Search among wide range of job openings of your preference.
                 </p>
               </li>
             </ul>
@@ -157,8 +154,7 @@ const Landing = () => {
               </li>
               <li>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Delectus doloribus, corporis expedita provident accusamus.
+                  Apply to the job vacancy as you desire.
                 </p>
               </li>
             </ul>
@@ -180,8 +176,7 @@ const Landing = () => {
               </li>
               <li>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Delectus doloribus, corporis expedita provident accusamus.
+                  Get a good job placement.
                 </p>
               </li>
             </ul>
@@ -202,7 +197,7 @@ const Landing = () => {
                   color={"#fff"}
                 />
               </div>
-              <p className="title">Job Vacancies</p>
+              <p className="title">Active Vacancies</p>
             </div>
             <h1 className="value">30</h1>
           </div>
@@ -219,7 +214,7 @@ const Landing = () => {
               </div>
               <p className="title">Organizations</p>
             </div>
-            <h1 className="value">30</h1>
+            <h1 className="value">12</h1>
           </div>
         </div>
         <div className="col-lg-3 col-md-4 mb-lg-0 mb-3">
@@ -242,14 +237,14 @@ const Landing = () => {
             <div>
               <div className="icon">
                 <Icon
-                  icon="ph:user-circle-plus-duotone"
+                  icon="ic:baseline-work-outline"
                   fontSize={"4rem"}
                   color={"#fff"}
                 />
               </div>
               <p className="title">Total Vacancies</p>
             </div>
-            <h1 className="value">30</h1>
+            <h1 className="value">40</h1>
           </div>
         </div>
       </div>
