@@ -12,7 +12,7 @@ const HomeJobs = () => {
           "Content-Type": "application/json",
         },
       });
-      setJobs(result.data.data);
+      setJobs(result.data.data.results);
     } catch (error) {
       console.log(error);
     }
