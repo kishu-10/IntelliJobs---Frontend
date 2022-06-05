@@ -14673,3 +14673,15 @@ select:focus {
   margin-top: 1.8rem;
   margin-left: 18rem;
 }
+
+
+.mantine-Pagination-item {
+  background: var(--white);
+  color: var(--dark);
+}
+
+
+.mantine-Pagination-active{
+  background: var(--primary);
+  color: var(--white);
+}

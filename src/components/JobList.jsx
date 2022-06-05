@@ -10,6 +10,7 @@ import { Pagination } from "@mantine/core";
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [activePage, setPage] = useState(1);
   const fetchJobs = async () => {
     try {
       const result = await axios.get(`http://127.0.0.1:8000/api/jobs/`, {
@@ -25,8 +26,9 @@ const JobList = () => {
           },
         }
       );
-      setJobs(result.data.data);
+      setJobs(result.data.data.results);
       setCategories(categories.data.data);
+      console.log(result.data.data);
     } catch (error) {
       console.log(error);
     }
@@ -36,25 +38,48 @@ const JobList = () => {
     fetchJobs();
   }, []);
 
+  const fetchJobsPagination = async () => {
+    try {
+      const result = await axios.get(
+        `http://127.0.0.1:8000/api/jobs/?page=${activePage}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(activePage);
+      console.log(result.data.data.results, "sd");
+      setJobs(result.data.data.results);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobsPagination();
+  }, [activePage]);
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    const filterJobs = async () => {
-      try {
-        const result = await axios.get(
-          `http://127.0.0.1:8000/api/jobs/?category=${data.category}&title=${data.title}&address=${data.address}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        setJobs(result.data.data);
-      } catch (error) {
-        console.log(error);
-      }
+    const jsonData = {
+      category: data.category,
+      title: data.title,
+      address: data.address,
     };
-    filterJobs();
+    axios({
+      method: "post",
+      url: "http://127.0.0.1:8000/api/jobs/job-search/",
+      data: jsonData,
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => {
+        setJobs(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -90,6 +115,9 @@ const JobList = () => {
                 </div>
                 <div className="col-md-3 job-filter-col">
                   <select defaultValue="" {...register("category")}>
+                    <option value="" selected disabled>
+                      Job Category
+                    </option>
                     {categories.map((category) => (
                       <option key={category.id} value={category.id}>
                         {category.name}
@@ -114,9 +142,9 @@ const JobList = () => {
               <Job key={job.id} job={job} />
             ))}
           </div>
-        <div className="job-pagination">
-          <Pagination total={10} />
-        </div>
+          <div className="job-pagination">
+            <Pagination page={activePage} onChange={setPage} total={5} />
+          </div>
         </div>
       </div>
       <Footer />

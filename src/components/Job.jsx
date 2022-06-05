@@ -12,7 +12,7 @@ const Job = ({ job }) => {
       <div className="col-md-8 jobs-desc-col">
         <p className="font-weight-bold text-info font-16">{job.title}</p>
         <small className="text-muted font-12">
-          {job.date_created} <Icon icon="carbon:dot-mark" /> 6 Applied
+          {job.date_created} <Icon icon="carbon:dot-mark" /> {job.applications} Applicants
         </small>
         <div className="row jobs-desc-row">
           <div className="col-lg-5">

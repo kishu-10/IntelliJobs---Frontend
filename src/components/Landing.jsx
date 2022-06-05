@@ -1,9 +1,40 @@
 import React from "react";
 import logo from "../logo-lg.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Landing = () => {
+  const [details, setDetails] = useState([]);
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("access_token")) {
+      navigate("/feeds");
+    }
+  }, [navigate]);
+
+  async function fetchDetails() {
+    try {
+      const result = await axios.get(
+        `http://127.0.0.1:8000/api/feeds/landing-details/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setDetails(result.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    fetchDetails();
+  }, []);
+
   return (
     <>
       <div className="row landing-page-row">
@@ -199,7 +230,7 @@ const Landing = () => {
               </div>
               <p className="title">Active Vacancies</p>
             </div>
-            <h1 className="value">30</h1>
+            <h1 className="value">{details.active_vacancies}</h1>
           </div>
         </div>
         <div className="col-lg-3 col-md-4 mb-lg-0 mb-3">
@@ -214,7 +245,7 @@ const Landing = () => {
               </div>
               <p className="title">Organizations</p>
             </div>
-            <h1 className="value">12</h1>
+            <h1 className="value">{details.organizations}</h1>
           </div>
         </div>
         <div className="col-lg-3 col-md-4 mb-lg-0 mb-3">
@@ -229,7 +260,7 @@ const Landing = () => {
               </div>
               <p className="title">Job Seekers</p>
             </div>
-            <h1 className="value">30</h1>
+            <h1 className="value">{details.job_seekers}</h1>
           </div>
         </div>
         <div className="col-lg-3 col-md-4 mb-lg-0 mb-3">
@@ -244,7 +275,7 @@ const Landing = () => {
               </div>
               <p className="title">Total Vacancies</p>
             </div>
-            <h1 className="value">40</h1>
+            <h1 className="value">{details.total_vacancies}</h1>
           </div>
         </div>
       </div>
